@@ -4,10 +4,9 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/notelogo"
 
-    android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+    android:label="Notes"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyProgram">
         <activity android:name=".MainActivity">
