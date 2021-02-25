@@ -3,56 +3,42 @@ package com.example.myprogram;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.Animation;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-        public class MainActivity extends AppCompatActivity {
+        public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-            ImageView setting;
-            ImageView favorite;
-            ImageView history;
+            ImageView plus;
+
+            BottomNavigationView bottomNavigation;
 
             @Override
             protected void onCreate(Bundle savedInstanceState) {
                 super.onCreate(savedInstanceState);
                 setContentView(R.layout.activity_main);
+                bottomNavigation = findViewById(R.id.bottom_nav);
 
-                 setting = (ImageView) findViewById(R.id.settings);
-                favorite = (ImageView) findViewById(R.id.favorite);
-                history = (ImageView) findViewById(R.id.history);
-
-//                BottomNavigationView bottomNavigationView = (BottomNavigationView)
-//                        findViewById(R.id.bottom_nav);
-
-//                bottomNavigationView.setOnNavigationItemSelectedListener(
-//                        new BottomNavigationView.OnNavigationItemSelectedListener() {
-//                            @Override
-//                            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-//                                switch (item.getItemId()) {
-//                                    case R.id.settings:
-//                                        setting.setVisibility(View.VISIBLE);
-//                                        history.setVisibility(View.GONE);
-//                                        favorite.setVisibility(View.GONE);
-//                                        break;
-//                                    case R.id.history:
-//                                        setting.setVisibility(View.GONE);
-//                                        history.setVisibility(View.VISIBLE);
-//                                        history.setVisibility(View.GONE);
-//                                        break;
-//                                    case R.id.favorite:
-//                                        setting.setVisibility(View.GONE);
-//                                        history.setVisibility(View.GONE);
-//                                        favorite.setVisibility(View.VISIBLE);
-//                                        break;
-//                                }
-//                                return false;
-//
-//                            }
-//                        });
+                plus = findViewById(R.id.plus);
+                ImageView plus = findViewById(R.id.plus);
+                plus.setOnClickListener(this);
             }
 
-}
+                @Override
+                public void onClick (View v){
+                    switch (v.getId()) {
+                        case R.id.plus:
+
+                            break;
+
+                    }
+
+                }
+            }

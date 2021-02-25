@@ -4,15 +4,17 @@
     <item
         android:id="@+id/settings"
         android:icon="@drawable/settings"
-        android:title="𝐒𝐞𝐭𝐭𝐢𝐧𝐠𝐬"/>
+        android:title="𝐒𝐞𝐭𝐭𝐢𝐧𝐠𝐬"
+        />
     <item
         android:id="@+id/favorite"
         android:icon="@drawable/favorite"
-        android:title="𝐅𝐚𝐯𝐨𝐫𝐢𝐭𝐞"/>
+        android:title="𝐅𝐚𝐯𝐨𝐫𝐢𝐭𝐞"
+        />
     <item
-            android:id="@+id/note"
-            android:icon="@drawable/note"
-            android:title="𝐍𝐨𝐭𝐞𝐬"/>
+            android:id="@+id/home"
+            android:icon="@drawable/home"
+            android:title="𝐇𝐨𝐦𝐞"/>
     <item
         android:id="@+id/history"
         android:icon="@drawable/history"

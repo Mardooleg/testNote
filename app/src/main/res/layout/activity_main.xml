@@ -5,14 +5,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="MainActivity">
-
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+android:background="#FFFFFF"
+    ></TextView>
     <TextView
         android:text=" Search"
+        android:textStyle="bold"
       android:layout_marginTop="15dp"
-        android:textSize="25sp"
+        android:textSize="20sp"
         android:textColor="#000000"
         android:paddingBottom="2dp"
-        android:paddingEnd="220dp"
+        android:paddingEnd="250dp"
         android:paddingStart="5dp"
         android:drawableLeft="@drawable/search"
         android:id="@+id/search"
@@ -23,17 +28,35 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <ImageView
+     android:id="@+id/plus"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="22dp"
+        android:layout_marginBottom="82dp"
+        android:src="@drawable/plus"></ImageView>
+
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_nav"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="65dp"
+android:background="#00C3A0"
         android:layout_alignParentStart="true"
+
         android:layout_alignParentBottom="true"
-        app:itemBackground="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/bottombar" />
 
+</RelativeLayout>
 
 </RelativeLayout>
