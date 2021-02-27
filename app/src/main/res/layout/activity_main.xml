@@ -5,58 +5,221 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="MainActivity">
-<TextView
+
+  
+    <TextView
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 android:background="#FFFFFF"
     ></TextView>
-    <TextView
-        android:text=" Search"
-        android:textStyle="bold"
-      android:layout_marginTop="15dp"
-        android:textSize="20sp"
-        android:textColor="#000000"
-        android:paddingBottom="2dp"
-        android:paddingEnd="250dp"
-        android:paddingStart="5dp"
-        android:drawableLeft="@drawable/search"
-        android:id="@+id/search"
-        android:background="@drawable/elipse"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+   <TextView
+       android:layout_height="50dp"
+       android:layout_width="match_parent"
+       android:id="@+id/toptitle"
+       android:paddingTop="3dp"
+       android:background="#00C3A0"
+       android:visibility="invisible"
+       android:text=" Favorite         "
+       android:textStyle="italic"
+       android:textSize="30sp"
+       android:textColor="#000000"
+       android:paddingBottom="2dp"
+       android:paddingStart="10dp"
+       android:drawableLeft="@drawable/likeheart"
+       android:layout_centerHorizontal="true"
+       app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintStart_toStartOf="parent"
+       ></TextView>
 
     <ImageView
      android:id="@+id/plus"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
+        android:visibility="visible"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="22dp"
         android:layout_marginBottom="82dp"
-        android:src="@drawable/plus"></ImageView>
+        android:src="@drawable/ic_plus"
+        android:shadowColor="@color/black"
+
+        ></ImageView>
 
     <RelativeLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottom_nav"
-        android:layout_width="match_parent"
-        android:layout_height="65dp"
-android:background="#00C3A0"
+        android:layout_height="match_parent"
         android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true">
 
-        android:layout_alignParentBottom="true"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/bottombar" />
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottom_nav"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:background="@color/greenblue1"
+            app:itemIconTint="@drawable/bottombarni"
+            app:itemTextColor="@drawable/bottombarni"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:menu="@menu/bottombar" />
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="25dp"
+            android:src="@drawable/elipse"
+            android:id="@+id/elipse"
+            />
 
-</RelativeLayout>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="true"
+android:layout_marginRight="25dp"
+            android:layout_marginLeft="25dp"
+
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="5dp"
+            android:src="@drawable/elipse1"
+            android:visibility="gone"
+            android:id="@+id/elipse1"
+            />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginRight="25dp"
+            android:layout_marginLeft="25dp"
+
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="5dp"
+            android:src="@drawable/elipse1"
+            android:visibility="invisible"
+            android:id="@+id/elipse2"
+            />
+        <ImageView
+            android:id="@+id/searchmove"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="25dp"
+            android:src="@drawable/search"
+            android:visibility="visible" />
+
+        <EditText
+            android:id="@+id/searchwrite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="5dp"
+            android:layout_toEndOf="@+id/searchmove"
+            android:layout_toRightOf="@+id/searchmove"
+            android:hint="Search in the notes"
+            android:inputType="text"
+            android:padding="10dp"
+            android:textSize="15sp"
+            android:visibility="invisible"></EditText>
+
+
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="25dp"
+            android:src="@drawable/search"
+            android:id="@+id/search"
+            android:visibility="visible"
+            />
+
+        <TextView
+            android:id="@+id/firstnote"
+            android:layout_width="140dp"
+            android:layout_height="100dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="55dp"
+            android:background="@drawable/elipse3"
+            android:text="Bla bla   "
+            android:textColor="@color/dark"
+            android:textSize="15sp"
+            android:paddingLeft="5dp"
+            android:paddingTop="20dp"
+            ></TextView>
+
+        <TextView
+           android:id="@+id/firsttitle"
+            android:layout_width="140dp"
+            android:layout_height="20dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="55dp"
+            android:background="@color/greenblue1"
+            android:drawableRight="@drawable/more"
+            android:text="Title"
+          android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:paddingLeft="5dp"
+            android:paddingRight="1dp"></TextView>
+
+        <TextView
+            android:layout_width="140dp"
+            android:layout_height="100dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="55dp"
+            android:layout_marginEnd="25dp"
+            android:background="@drawable/elipse3"
+            android:paddingRight="1dp"
+            android:text="Bla bla   "
+            android:textSize="15sp"
+            android:textColor="@color/dark"
+            android:paddingLeft="5dp"
+            android:paddingTop="20dp"
+            ></TextView>
+
+        <TextView
+            android:id="@+id/secondtitle"
+            android:layout_width="140dp"
+            android:layout_height="20dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="55dp"
+            android:layout_marginEnd="25dp"
+            android:background="@color/greenblue1"
+            android:drawableRight="@drawable/more"
+            android:paddingRight="1dp"
+            android:shadowDx="10"
+            android:shadowDy="10"
+            android:textColor="@color/black"
+            android:shadowRadius="10"
+            android:text="Title"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:paddingLeft="5dp"
+            ></TextView>
+
+
+
+    </RelativeLayout>
 
 </RelativeLayout>
