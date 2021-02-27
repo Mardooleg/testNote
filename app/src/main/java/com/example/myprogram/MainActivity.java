@@ -17,21 +17,26 @@ import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-        public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+import static android.view.View.INVISIBLE;
+import static android.view.View.VISIBLE;
+
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
             ImageView plus;
             ImageView searchmove;
             ImageView searchmove2;
-            ImageView elipse2;
+
+            ImageView elipse4;
 EditText edtext;
 ImageView elipse;
             ImageView elipse1;
-            ImageView history;
-            ImageView home;
-            ImageView calendar;
             TextView toptitle;
+            ImageView heart;
+            ImageView likeheart;
+    ImageView heart2;
+    ImageView likeheart2;
 ImageView search;
-int loc = 0;
+int hearty = 0;
             BottomNavigationView bottomNavigation;
 
             @Override
@@ -41,6 +46,21 @@ int loc = 0;
                 bottomNavigation = findViewById(R.id.bottom_nav);
                 edtext = findViewById(R.id.searchwrite);
 
+                heart = findViewById(R.id.heart);
+                ImageView heart = findViewById(R.id.heart);
+                heart.setOnClickListener(this);
+
+                likeheart = findViewById(R.id.likeheart);
+                ImageView likeheart = findViewById(R.id.likeheart);
+                likeheart.setOnClickListener(this);
+
+                heart2 = findViewById(R.id.heart2);
+                ImageView heart2 = findViewById(R.id.heart2);
+                heart2.setOnClickListener(this);
+
+                likeheart2 = findViewById(R.id.likeheart2);
+                ImageView likeheart2 = findViewById(R.id.likeheart2);
+                likeheart2.setOnClickListener(this);
 
                 plus = findViewById(R.id.plus);
                 ImageView plus = findViewById(R.id.plus);
@@ -53,19 +73,10 @@ int loc = 0;
                 searchmove = findViewById(R.id.searchmove);
                 ImageView searchmove = findViewById(R.id.searchmove);
                 searchmove.setOnClickListener(this);
-
-
                 elipse = findViewById(R.id.elipse);
-                ImageView elipse = findViewById(R.id.elipse);
-                elipse.setOnClickListener(this);
+                elipse4 = findViewById(R.id.elipse4);
 
                 elipse1 = findViewById(R.id.elipse1);
-                ImageView elipse1 = findViewById(R.id.elipse1);
-                elipse1.setOnClickListener(this);
-
-                elipse2 = findViewById(R.id.elipse2);
-                ImageView elipse2 = findViewById(R.id.elipse2);
-                elipse2.setOnClickListener(this);
 
                 toptitle =  findViewById(R.id.toptitle);
 
@@ -108,51 +119,47 @@ int loc = 0;
             }
 
                 @Override
-                public void onClick (View v){
+                public void onClick (View v) {
                     Animation anim = null;
-                    Animation anim1 = null;
                     Animation anim2 = null;
-                    Animation anim3 = null;
-
                     switch (v.getId()) {
                         case R.id.search:
                             anim = AnimationUtils.loadAnimation(this, R.anim.search_anim);
                             search.setVisibility(View.GONE);
-elipse.setVisibility(View.GONE);
-
-                            anim1 = AnimationUtils.loadAnimation(this, R.anim.elipse_anim);
+                            elipse.setVisibility(View.VISIBLE);
                             elipse1.setVisibility(View.VISIBLE);
                             searchmove.setVisibility(View.VISIBLE);
                             edtext.setVisibility(View.VISIBLE);
-
-                        break;
-
-                        case R.id.elipse1:
-//                            anim2 = AnimationUtils.loadAnimation(this, R.anim.elipse_anim);
-//                            elipse2.setVisibility(View.VISIBLE);
-//                            searchmove2.setVisibility(View.VISIBLE);
-//                            elipse1.setVisibility(View.INVISIBLE);
-//                            searchmove.setVisibility(View.INVISIBLE);
-//                            anim3 = AnimationUtils.loadAnimation(this, R.anim.search_anim2);
-//                            elipse.setVisibility(View.VISIBLE);
-//                            search.setVisibility(View.VISIBLE);
+                            anim2 = AnimationUtils.loadAnimation(this, R.anim.elipse_anim);
                             break;
 
+                        case R.id.searchmove:
+                            anim = AnimationUtils.loadAnimation(this, R.anim.search_anim2);
+                            search.setVisibility(View.VISIBLE);
+                            elipse.setVisibility(View.VISIBLE);
+                            elipse1.setVisibility(INVISIBLE);
+                            searchmove.setVisibility(INVISIBLE);
+                            edtext.setVisibility(INVISIBLE);
+                            anim2 = AnimationUtils.loadAnimation(this, R.anim.elipse_anim);
+                            elipse4.setVisibility(View.INVISIBLE);
 
-                }
+                            break;
+                        case R.id.heart:
+                           likeheart.setVisibility(VISIBLE);
+                            heart.setVisibility(View.GONE);
+                            break;
+                        
 
-                    search.startAnimation(anim);
-                    elipse.startAnimation(anim);
-                    searchmove.startAnimation(anim1);
-                    elipse1.startAnimation(anim1);
-                    edtext.startAnimation(anim1);
 
-//                    searchmove2.startAnimation(anim2);
-//                    elipse2.startAnimation(anim2);
-//                    search.startAnimation(anim3);
-//                    elipse.startAnimation(anim3);
-                    // запускаем анимацию для компонента tv
+                    }
 
+
+
+                    edtext.startAnimation(anim);
+                    searchmove.startAnimation(anim);
+                    elipse1.startAnimation(anim);
+                    elipse4.startAnimation(anim2);
+//                    elipse4.startAnimation(anim2);
                     }
                 }
 
