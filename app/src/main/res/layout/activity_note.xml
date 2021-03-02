@@ -6,38 +6,60 @@
     android:layout_height="match_parent"
     tools:context="MainActivity">
 
+
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-       android:background="@color/greenblue2"></TextView>
-   <TextView
-       android:layout_width="match_parent"
-       android:layout_height="50dp"
-       android:background="@color/greenblue1"
-       ></TextView>
+        android:layout_width="3000dp"
+        android:layout_height="3000dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="0dp"
+        android:layout_marginTop="-60dp"
+
+        android:background="@color/greenblue2"></TextView>
+
+    <ImageView
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="15dp"
+android:id="@+id/back"
+        android:src="@drawable/back"></ImageView>
 
     <EditText
-        android:layout_width="match_parent"
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="0dp"
+        android:layout_marginStart="34dp"
         android:layout_marginLeft="40dp"
-
-        android:text="Title"
-        android:textSize="30sp"
+        android:layout_marginTop="42dp"
+        android:hint="Title"
+        android:textColorHint="@color/greenblue1"
+        android:paddingTop="10dp"
+        android:textSize="20sp"
         android:textStyle="bold"></EditText>
 
     <EditText
-       android:layout_width="364dp"
-       android:layout_height="wrap_content"
-       android:layout_alignParentStart="true"
-       android:layout_alignParentTop="true"
-       android:layout_marginStart="28dp"
-       android:layout_marginTop="57dp"
-       android:gravity="center_vertical"
-       android:text="Type here..."
-       android:textSize="20sp"
-       android:textStyle="italic"></EditText>
+        android:layout_width="364dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="106dp"
+        android:layout_marginBottom="557dp"
+        android:gravity="center_vertical"
+
+        android:hint="Type here...
+
+ "
+        android:textColorHint="@color/greenblue1"
+        android:textSize="20sp"></EditText>
 
 </RelativeLayout>

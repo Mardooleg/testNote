@@ -26,6 +26,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             ImageView searchmove;
             ImageView searchmove2;
 
+            BottomNavigationView favorite;
+    BottomNavigationView history;
+    BottomNavigationView home;
+    BottomNavigationView settings;
+    BottomNavigationView calendar;
+
             ImageView elipse4;
 EditText edtext;
 ImageView elipse;
@@ -49,6 +55,7 @@ int hearty = 0;
                 heart = findViewById(R.id.heart);
                 ImageView heart = findViewById(R.id.heart);
                 heart.setOnClickListener(this);
+
 
                 likeheart = findViewById(R.id.likeheart);
                 ImageView likeheart = findViewById(R.id.likeheart);
@@ -83,38 +90,38 @@ int hearty = 0;
                 BottomNavigationView bottomNavigationView = (BottomNavigationView)
                         findViewById(R.id.bottom_nav);
 
-//                bottomNavigationView.setOnNavigationItemSelectedListener(
-//                        new BottomNavigationView.OnNavigationItemSelectedListener() {
-//                            @Override
-//                            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-//                                switch (item.getItemId()) {
-//                                    case R.id.favorite:
-//                                        plus.setVisibility(View.GONE);
-//                                        toptitle.setVisibility(View.VISIBLE);
-//                                        toptitle.setText(" Favorite             ");
-//                                        search.setVisibility(View.GONE);
-//                                        break;
-//                                    case R.id.history:
-//                                        plus.setVisibility(View.GONE);
-//                                        toptitle.setVisibility(View.VISIBLE);
-//                                        toptitle.setText("History           ");
-//                                        search.setVisibility(View.GONE);
-//                                        break;
-//                                    case R.id.settings:
-//                                       plus.setVisibility(View.INVISIBLE);
-//                                        toptitle.setVisibility(View.VISIBLE);
-//                                        toptitle.setText("Settings       ");
-//                                        search.setVisibility(View.GONE);
-//                                        break;
-//                                    case R.id.home:
-//                                        plus.setVisibility(View.VISIBLE);
-//                                        toptitle.setVisibility(View.GONE);
-//                                        search.setVisibility(View.VISIBLE);
-//                                        break;
-//                                }
-//                                return false;
-//                            }
-//                        });
+                bottomNavigationView.setOnNavigationItemSelectedListener(
+                        new BottomNavigationView.OnNavigationItemSelectedListener() {
+                            @Override
+                            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                                switch (item.getItemId()) {
+                                    case R.id.favorite:
+                                        plus.setVisibility(View.GONE);
+                                        toptitle.setVisibility(View.VISIBLE);
+                                        toptitle.setText(" Favorite             ");
+                                        search.setVisibility(View.GONE);;
+                                        break;
+                                    case R.id.history:
+                                        plus.setVisibility(View.GONE);
+                                        toptitle.setVisibility(View.VISIBLE);
+                                        toptitle.setText("History           ");
+                                        search.setVisibility(View.GONE);
+                                        break;
+                                    case R.id.settings:
+                                       plus.setVisibility(View.INVISIBLE);
+                                        toptitle.setVisibility(View.VISIBLE);
+                                        toptitle.setText("Settings       ");
+                                        search.setVisibility(View.GONE);
+                                        break;
+                                    case R.id.home:
+                                        plus.setVisibility(View.VISIBLE);
+                                        toptitle.setVisibility(View.GONE);
+                                        search.setVisibility(View.VISIBLE);
+                                        break;
+                                }
+                                return true;
+                            }
+                        });
 
             }
 
@@ -144,11 +151,15 @@ int hearty = 0;
                             elipse4.setVisibility(View.INVISIBLE);
 
                             break;
-                        case R.id.heart:
-                           likeheart.setVisibility(VISIBLE);
-                            heart.setVisibility(View.GONE);
-                            break;
-                        
+
+                        case R.id.plus:
+                            Intent intent = new Intent(this, Note.class);
+                            startActivity(intent);
+
+                                break;
+                        default:
+                        break;
+
 
 
                     }
