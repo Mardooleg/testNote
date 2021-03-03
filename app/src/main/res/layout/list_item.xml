@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+        <TextView
+            android:id="@+id/firstnote"
+            android:layout_width="140dp"
+            android:layout_height="100dp"
+
+android:layout_centerHorizontal="true"
+            android:background="@drawable/elipse3"
+            android:text="Bla bla   "
+            android:textColor="@color/dark"
+            android:textSize="15sp"
+            android:layout_marginTop="25dp"
+
+            android:paddingLeft="5dp"
+            android:paddingTop="20dp"
+            ></TextView>
+
+        <TextView
+            android:id="@+id/firsttitle"
+            android:layout_width="140dp"
+            android:layout_height="20dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/elipse2"
+            android:drawableRight="@drawable/more"
+            android:text="Title"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:paddingLeft="8dp"
+            android:paddingRight="1dp"
+            android:paddingTop="2dp"
+            ></TextView>
+
+
+
+        <ImageView
+            android:layout_width="23dp"
+            android:layout_height="23dp"
+            android:layout_alignEnd="@+id/firstnote"
+            android:id="@+id/heart"
+            android:layout_alignBottom="@+id/firstnote"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:src="@drawable/favorite"
+            android:visibility="visible"
+
+            ></ImageView>
+
+
+
+
+
+
+
+
+</RelativeLayout>

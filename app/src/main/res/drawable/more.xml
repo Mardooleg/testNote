@@ -2,7 +2,9 @@
     android:width="15dp"
     android:height="15dp"
     android:viewportWidth="58"
-    android:viewportHeight="58">
+    android:viewportHeight="58"
+    android:id="@+id/more"
+    >
   <path
       android:pathData="M29,7m-7,0a7,7 0,1 1,14 0a7,7 0,1 1,-14 0"
       android:fillColor="#000000"/>

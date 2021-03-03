@@ -7,6 +7,7 @@
     tools:context="MainActivity">
 
 
+
     <TextView
         android:layout_width="3000dp"
         android:layout_height="3000dp"
@@ -29,6 +30,15 @@
 android:id="@+id/back"
         android:src="@drawable/back"></ImageView>
 
+    <ImageView
+        android:id="@+id/tick"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="15dp"
+        android:src="@drawable/tick"></ImageView>
     <EditText
         android:id="@+id/title"
         android:layout_width="wrap_content"
@@ -36,13 +46,15 @@ android:id="@+id/back"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="34dp"
+        android:background="@null"
         android:layout_marginLeft="40dp"
         android:layout_marginTop="42dp"
         android:hint="Title"
         android:textColorHint="@color/greenblue1"
         android:paddingTop="10dp"
         android:textSize="20sp"
-        android:textStyle="bold"></EditText>
+        android:textStyle="bold"
+        ></EditText>
 
     <EditText
         android:layout_width="364dp"
@@ -55,10 +67,9 @@ android:id="@+id/back"
         android:layout_marginTop="106dp"
         android:layout_marginBottom="557dp"
         android:gravity="center_vertical"
-
-        android:hint="Type here...
-
- "
+        android:background="@null"
+android:id="@+id/note"
+        android:hint="Type here..."
         android:textColorHint="@color/greenblue1"
         android:textSize="20sp"></EditText>
 

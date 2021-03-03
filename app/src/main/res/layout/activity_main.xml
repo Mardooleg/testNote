@@ -32,19 +32,7 @@ android:background="#FFFFFF"
        app:layout_constraintStart_toStartOf="parent"
        ></TextView>
 
-    <ImageView
-     android:id="@+id/plus"
-        android:visibility="visible"
-        android:layout_width="55dp"
-        android:layout_height="55dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="22dp"
-        android:layout_marginBottom="82dp"
-        android:src="@drawable/ic_plus"
-        android:shadowColor="@color/black"
 
-        ></ImageView>
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -171,124 +159,35 @@ android:layout_marginRight="25dp"
 
 
 
-        <TextView
-            android:id="@+id/firstnote"
-            android:layout_width="140dp"
-            android:layout_height="100dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="25dp"
-            android:layout_marginTop="55dp"
-            android:background="@drawable/elipse3"
-            android:text="Bla bla   "
-            android:textColor="@color/dark"
-            android:textSize="15sp"
-            android:paddingLeft="5dp"
-            android:paddingTop="20dp"
-            ></TextView>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id = "@+id/rv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="65dp"
 
-        <TextView
-           android:id="@+id/firsttitle"
-            android:layout_width="140dp"
-            android:layout_height="20dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="25dp"
-            android:layout_marginTop="55dp"
-            android:background="@drawable/elipse2"
-            android:drawableRight="@drawable/more"
-            android:text="Title"
-          android:textColor="@color/black"
-            android:textStyle="bold"
-            android:textSize="15sp"
-            android:paddingLeft="8dp"
-            android:paddingRight="1dp"></TextView>
+            />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id = "@+id/fv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="65dp"
 
-        <TextView
-            android:layout_width="140dp"
-            android:layout_height="100dp"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:id="@+id/secondnote"
-            android:layout_marginTop="55dp"
-            android:layout_marginEnd="25dp"
-            android:background="@drawable/elipse3"
-            android:paddingRight="1dp"
-            android:text="Bla bla   "
-            android:textSize="15sp"
-            android:textColor="@color/dark"
-            android:paddingLeft="5dp"
-            android:paddingTop="20dp"
-            ></TextView>
-
+            />
         <ImageView
-            android:layout_width="23dp"
-            android:layout_height="23dp"
-            android:layout_alignEnd="@+id/firstnote"
-android:id="@+id/heart"
-            android:layout_alignBottom="@+id/firstnote"
-            android:layout_marginEnd="10dp"
-            android:layout_marginBottom="10dp"
-            android:src="@drawable/favorite"
+            android:id="@+id/plus"
             android:visibility="visible"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="22dp"
+            android:layout_marginBottom="82dp"
+            android:src="@drawable/ic_plus"
+            android:shadowColor="@color/black"
 
             ></ImageView>
-        <ImageView
-            android:layout_width="23dp"
-            android:layout_height="23dp"
-            android:layout_alignEnd="@+id/secondnote"
-            android:id="@+id/heart2"
-            android:layout_alignBottom="@+id/secondnote"
-            android:layout_marginEnd="10dp"
-            android:layout_marginBottom="10dp"
-            android:src="@drawable/favorite"
-            android:visibility="visible"
-
-            ></ImageView>
-
-
-        <ImageView
-            android:id="@+id/likeheart"
-            android:layout_width="23dp"
-            android:layout_height="23dp"
-            android:layout_alignEnd="@+id/secondnote"
-            android:layout_alignBottom="@+id/secondnote"
-            android:layout_marginEnd="10dp"
-            android:layout_marginBottom="10dp"
-            android:src="@drawable/likeheart"
-            android:visibility="gone"></ImageView>
-        <ImageView
-            android:id="@+id/likeheart2"
-            android:layout_width="23dp"
-            android:layout_height="23dp"
-            android:layout_alignEnd="@+id/firstnote"
-            android:layout_alignBottom="@+id/firstnote"
-            android:layout_marginEnd="10dp"
-            android:layout_marginBottom="10dp"
-            android:src="@drawable/likeheart"
-            android:visibility="gone"></ImageView>
-        <TextView
-            android:id="@+id/secondtitle"
-            android:layout_width="140dp"
-            android:layout_height="20dp"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="55dp"
-            android:layout_marginEnd="25dp"
-            android:background="@drawable/elipse2"
-            android:drawableRight="@drawable/more"
-            android:paddingRight="1dp"
-            android:shadowDx="10"
-            android:shadowDy="10"
-            android:textColor="@color/black"
-            android:shadowRadius="10"
-            android:text="Title"
-            android:textStyle="bold"
-            android:textSize="15sp"
-            android:paddingLeft="8dp"
-            ></TextView>
-
-
 
     </RelativeLayout>
 

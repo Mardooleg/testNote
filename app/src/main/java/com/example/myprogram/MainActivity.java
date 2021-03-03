@@ -2,11 +2,15 @@ package com.example.myprogram;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -17,15 +21,17 @@ import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import java.util.List;
+
 import static android.view.View.INVISIBLE;
 import static android.view.View.VISIBLE;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-
             ImageView plus;
             ImageView searchmove;
             ImageView searchmove2;
-
+TextView firstnote;
+TextView firsttitle;
             BottomNavigationView favorite;
     BottomNavigationView history;
     BottomNavigationView home;
@@ -42,32 +48,41 @@ ImageView elipse;
     ImageView heart2;
     ImageView likeheart2;
 ImageView search;
+TextView title;
+TextView note;
 int hearty = 0;
             BottomNavigationView bottomNavigation;
 
             @Override
             protected void onCreate(Bundle savedInstanceState) {
+
+
+
                 super.onCreate(savedInstanceState);
                 setContentView(R.layout.activity_main);
+                StateAdapter stateAdapter = new StateAdapter(this, App.getInstance().getAppDatabase().modelDao().getAll());
+
+                RecyclerView recyclerView = findViewById(R.id.rv);
+                recyclerView.setAdapter(stateAdapter);
+
+                recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
+
+                RecyclerView favoriteView = findViewById(R.id.fv);
+                favoriteView.setAdapter(stateAdapter);
+
+                recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
+
+
                 bottomNavigation = findViewById(R.id.bottom_nav);
                 edtext = findViewById(R.id.searchwrite);
 
-                heart = findViewById(R.id.heart);
-                ImageView heart = findViewById(R.id.heart);
-                heart.setOnClickListener(this);
+                title = findViewById(R.id.firsttitle);
+//                TextView title = findViewById(R.id.firsttitle);
+//                title.setOnClickListener(this);
 
-
-                likeheart = findViewById(R.id.likeheart);
-                ImageView likeheart = findViewById(R.id.likeheart);
-                likeheart.setOnClickListener(this);
-
-                heart2 = findViewById(R.id.heart2);
-                ImageView heart2 = findViewById(R.id.heart2);
-                heart2.setOnClickListener(this);
-
-                likeheart2 = findViewById(R.id.likeheart2);
-                ImageView likeheart2 = findViewById(R.id.likeheart2);
-                likeheart2.setOnClickListener(this);
+                note = findViewById(R.id.firstnote);
+//                TextView note = findViewById(R.id.firstnote);
+//                note.setOnClickListener(this);
 
                 plus = findViewById(R.id.plus);
                 ImageView plus = findViewById(R.id.plus);
@@ -99,8 +114,11 @@ int hearty = 0;
                                         plus.setVisibility(View.GONE);
                                         toptitle.setVisibility(View.VISIBLE);
                                         toptitle.setText(" Favorite             ");
-                                        search.setVisibility(View.GONE);;
-                                        break;
+                                        search.setVisibility(View.GONE);
+//                                        if() {
+//                                            App.getInstance().getAppDatabase().modelDao().save(new Notatka(title.getText().toString(), note.getText().toString(), false));
+//                                            break;
+//                                        }
                                     case R.id.history:
                                         plus.setVisibility(View.GONE);
                                         toptitle.setVisibility(View.VISIBLE);
@@ -130,6 +148,14 @@ int hearty = 0;
                     Animation anim = null;
                     Animation anim2 = null;
                     switch (v.getId()) {
+//                        case R.id.note:
+//                            Intent intent = new Intent(this, Note.class);
+//                            startActivity(intent);
+//                            break;
+//                            default:
+//                            break;
+
+
                         case R.id.search:
                             anim = AnimationUtils.loadAnimation(this, R.anim.search_anim);
                             search.setVisibility(View.GONE);
@@ -153,14 +179,11 @@ int hearty = 0;
                             break;
 
                         case R.id.plus:
-                            Intent intent = new Intent(this, Note.class);
-                            startActivity(intent);
-
+                            Intent intent1 = new Intent(this, Note.class);
+                            startActivity(intent1);
                                 break;
                         default:
                         break;
-
-
 
                     }
 
