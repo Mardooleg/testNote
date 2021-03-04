@@ -16,6 +16,9 @@ public interface ModelDao{
     @Query("SELECT* FROM Notatka")
     List<Notatka> getAll();
 
+    @Query("SELECT* FROM Notatka WHERE favorite = 1")
+    List<Notatka> getAllFavorite();
+
     @Query("SELECT * FROM Notatka WHERE id = :id")
 Notatka getById(int id);
 
@@ -27,4 +30,6 @@ Notatka getById(int id);
 
     @Delete
     void delete(Notatka notatka);
-}
+
+    }
+

@@ -16,7 +16,10 @@ public class Notatka {
         this.title=title;
         this.note=note;
         this.favorite=favorite;
+
     }
+
+
 
     public int getId() {
         return id;

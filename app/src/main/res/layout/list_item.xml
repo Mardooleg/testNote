@@ -18,6 +18,7 @@ android:layout_centerHorizontal="true"
 
             android:paddingLeft="5dp"
             android:paddingTop="20dp"
+            android:visibility="visible"
             ></TextView>
 
         <TextView
@@ -27,7 +28,6 @@ android:layout_centerHorizontal="true"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="25dp"
             android:background="@drawable/elipse2"
-            android:drawableRight="@drawable/more"
             android:text="Title"
             android:textColor="@color/black"
             android:textStyle="bold"
@@ -35,9 +35,21 @@ android:layout_centerHorizontal="true"
             android:paddingLeft="8dp"
             android:paddingRight="1dp"
             android:paddingTop="2dp"
+            android:visibility="visible"
+
             ></TextView>
 
 
+        <ImageView
+            android:id="@+id/more"
+            android:layout_width="13dp"
+            android:layout_height="13dp"
+            android:layout_alignTop="@+id/firstnote"
+            android:layout_alignEnd="@+id/firsttitle"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="4dp"
+            android:src="@drawable/more"
+            ></ImageView>
 
         <ImageView
             android:layout_width="23dp"

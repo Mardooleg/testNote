@@ -6,7 +6,7 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:name= ".App"
-    android:label="Notes"
+    android:label="Note"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyProgram">
         <activity android:name=".MainActivity"

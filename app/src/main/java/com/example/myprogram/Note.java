@@ -36,8 +36,11 @@ public class Note extends AppCompatActivity  implements View.OnClickListener {
     public void onClick (View v) {
        switch (v.getId()) {
            case  R.id.back:
+
                Intent intent = new Intent(this, MainActivity.class);
                App.getInstance().getAppDatabase().modelDao().save(new Notatka(title.getText().toString(), note.getText().toString(), false));
+
+               //App.getInstance().getAppDatabase().modelDao().update(new Notatka(title.getText().toString(), note.getText().toString(), false));
                startActivity(intent);
                break;
            default:
