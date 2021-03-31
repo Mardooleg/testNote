@@ -13,14 +13,15 @@ import java.util.List;
 
 @Dao
 public interface ModelDao{
-    @Query("SELECT* FROM Notatka")
-    List<Notatka> getAll();
+    @Query("SELECT* FROM Notatka WHERE title LIKE '%' || :name || '%' OR note LIKE '%' || :name || '%'")
+    List<Notatka> getAll(   String name);
 
-    @Query("SELECT* FROM Notatka WHERE favorite = 1")
-    List<Notatka> getAllFavorite();
+    @Query("SELECT* FROM Notatka WHERE favorite = 1 AND (title LIKE '%' || :name || '%' OR note LIKE '%' || :name || '%')")
+    List<Notatka> getAllFavorite( String name);
 
     @Query("SELECT * FROM Notatka WHERE id = :id")
 Notatka getById(int id);
+
 
     @Insert
     void save(Notatka notatka);

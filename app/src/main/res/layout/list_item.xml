@@ -40,16 +40,6 @@ android:layout_centerHorizontal="true"
             ></TextView>
 
 
-        <ImageView
-            android:id="@+id/more"
-            android:layout_width="13dp"
-            android:layout_height="13dp"
-            android:layout_alignTop="@+id/firstnote"
-            android:layout_alignEnd="@+id/firsttitle"
-            android:layout_marginTop="4dp"
-            android:layout_marginEnd="4dp"
-            android:src="@drawable/more"
-            ></ImageView>
 
         <ImageView
             android:layout_width="23dp"

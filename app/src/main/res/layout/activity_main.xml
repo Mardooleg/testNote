@@ -12,7 +12,69 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 android:background="#FFFFFF"
+        android:id="@+id/background1"
     ></TextView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+android:textSize="20dp"
+        android:text="𝐘𝐨𝐮 𝐝𝐨𝐧'𝐭 𝐡𝐚𝐯𝐞 𝐧𝐨𝐭𝐞𝐬 𝐡𝐞𝐫𝐞"
+        android:textColor="@color/dark"
+        android:id="@+id/empty"
+        ></TextView>
+    <ImageView
+     android:id="@+id/astr"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/ic_astronaut"
+      android:layout_above="@+id/empty"
+        android:visibility="visible"
+        ></ImageView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="𝐘𝐨𝐮 𝐝𝐨𝐧'𝐭 𝐡𝐚𝐯𝐞 𝐟𝐚𝐯𝐨𝐫𝐢𝐭𝐞 𝐡𝐞𝐫𝐞"
+        android:textColor="@color/black"
+        android:id="@+id/emptyres"
+        android:visibility="gone"
+
+        ></TextView>
+    <ImageView
+        android:id="@+id/astr1"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/ic_astronaut__1_"
+        android:layout_above="@+id/empty"
+        android:visibility="gone"
+        ></ImageView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:textColor="@color/dark"
+
+        android:text="𝐍𝐨 𝐫𝐞𝐬𝐮𝐥𝐭𝐬 𝐟𝐨𝐮𝐧𝐝"
+        android:id="@+id/emptyfav"
+        android:visibility="gone"
+
+        ></TextView>
+    <ImageView
+        android:id="@+id/astr2"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/ic_astronaut__2_"
+        android:layout_above="@+id/empty"
+        android:visibility="gone"
+        ></ImageView>
+
    <TextView
        android:layout_height="50dp"
        android:layout_width="match_parent"
@@ -79,15 +141,16 @@ android:layout_marginRight="25dp"
             android:layout_alignParentTop="true"
             android:layout_marginStart="0dp"
             android:layout_marginLeft="0dp"
-            android:layout_marginTop="6dp"
+            android:layout_marginTop="5dp"
             android:layout_toEndOf="@+id/searchmove"
             android:layout_toRightOf="@+id/searchmove"
             android:background="@null"
-            android:hint="Search    "
+            android:hint="Search                             "
             android:inputType="text"
             android:padding="10dp"
             android:textSize="18sp"
-            android:visibility="gone"></EditText>
+            android:visibility="gone"
+            ></EditText>
 
         <TextView
             android:layout_width="35dp"
@@ -96,7 +159,9 @@ android:layout_marginRight="25dp"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="5dp"
             android:layout_marginEnd="0dp"
-            android:background="@color/white"></TextView>
+            android:background="@color/white"
+            android:id="@+id/litback"
+            ></TextView>
 
         <ImageView
         android:layout_width="40dp"
@@ -167,6 +232,7 @@ android:layout_marginRight="25dp"
             android:layout_marginBottom="65dp"
 android:visibility="visible"
             />
+
         <androidx.recyclerview.widget.RecyclerView
             android:id = "@+id/fv"
             android:layout_width="match_parent"
@@ -175,6 +241,7 @@ android:visibility="visible"
             android:layout_marginBottom="65dp"
             android:visibility="gone"
             />
+
 
         <ImageView
             android:id="@+id/plus"
@@ -189,6 +256,122 @@ android:visibility="visible"
             android:shadowColor="@color/black"
 
             ></ImageView>
+        <ImageView
+            android:id="@+id/plus1"
+            android:visibility="visible"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="22dp"
+            android:layout_marginBottom="82dp"
+            android:src="@drawable/ic_plus2"
+            android:shadowColor="@color/black"
+
+            ></ImageView>
+
+        <Switch
+            android:id="@+id/switch1"
+            android:layout_width="1000dp"
+            android:layout_height="wrap_content"
+            android:text="Dark mode"
+            android:textStyle="bold|normal"
+           android:layout_marginRight="25dp"
+            android:layout_marginLeft="25dp"
+            android:textSize="23dp"
+            android:layout_marginTop="15dp"
+           android:checked="false"
+            android:visibility="invisible"
+            android:textColor="@color/dark"
+            />
+
+        <TextView
+            android:id="@+id/systhem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="25dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="45dp"
+            android:text="System theme"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:visibility="invisible"></TextView>
+<ImageView
+    android:layout_width="35dp"
+    android:layout_height="35dp"
+  android:src="@drawable/color_item"
+android:layout_marginTop="75dp"
+    android:layout_marginLeft="25dp"
+    android:id="@+id/item1"
+    android:visibility="invisible"
+
+    ></ImageView>
+        <ImageView
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:src="@drawable/color_item1"
+            android:layout_marginTop="120dp"
+            android:layout_marginLeft="115dp"
+            android:id="@+id/item2"
+            android:visibility="invisible"
+
+            ></ImageView>
+        <ImageView
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:src="@drawable/color_item2"
+            android:layout_marginTop="75dp"
+            android:layout_marginLeft="70dp"
+            android:id="@+id/item3"
+            android:visibility="invisible"
+
+            ></ImageView>
+        <ImageView
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:src="@drawable/color_item3"
+            android:layout_marginTop="75dp"
+            android:layout_marginLeft="115dp"
+            android:id="@+id/item4"
+            android:visibility="invisible"
+
+            ></ImageView>
+        <ImageView
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:src="@drawable/color_item4"
+            android:layout_marginTop="120dp"
+            android:layout_marginLeft="70dp"
+            android:id="@+id/item5"
+            android:visibility="invisible"
+
+            ></ImageView>
+        <ImageView
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:src="@drawable/color_item5"
+            android:layout_marginTop="120dp"
+            android:layout_marginLeft="25dp"
+            android:id="@+id/item6"
+android:visibility="invisible"
+            ></ImageView>
+
+<Switch
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/askbd"
+    android:textStyle="bold"
+    android:text="Ask before delete?"
+    android:layout_marginRight="25dp"
+    android:layout_marginLeft="25dp"
+    android:layout_marginTop="165dp"
+    android:textSize="23dp"
+    android:checked="false"
+android:visibility="invisible"
+
+    ></Switch>
 
     </RelativeLayout>
 

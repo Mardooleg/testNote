@@ -1,6 +1,7 @@
 package com.example.myprogram;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
@@ -41,11 +43,9 @@ public class StateAdapter1 extends RecyclerView.Adapter<StateAdapter1.ViewHolder
         holder.firstnote.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                //if(onClickToMore != null)
-//                        onClickToMore.onClick(notatka);
-                App.getInstance().getAppDatabase().modelDao().delete(notatka);
-
+                notatka.setFavorite(false);
                 notatkas.remove(notatka);
+                App.getInstance().getAppDatabase().modelDao().update(notatka);
                 StateAdapter1.this.notifyItemRemoved(position);
 
                 return true;
@@ -73,8 +73,9 @@ public class StateAdapter1 extends RecyclerView.Adapter<StateAdapter1.ViewHolder
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         final ImageView favorite;
-        final ImageView more;
+        final ImageView elipse1;
 
+        final TextView background;
 
         final TextView firsttitle, firstnote;
 
@@ -82,10 +83,10 @@ public class StateAdapter1 extends RecyclerView.Adapter<StateAdapter1.ViewHolder
             super(view);
 
             favorite = (ImageView) view.findViewById(R.id.heart);
-            more = (ImageView) view.findViewById(R.id.more);
-
+            elipse1 = view.findViewById(R.id.elipse4);
             firstnote = (TextView) view.findViewById(R.id.firstnote);
             firsttitle = (TextView) view.findViewById(R.id.firsttitle);
+            background = (TextView) view.findViewById(R.id.background1);
         }
     }
 
