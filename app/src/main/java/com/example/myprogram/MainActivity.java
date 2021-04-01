@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -23,6 +24,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -37,7 +39,7 @@ import java.util.List;
 import static android.view.View.INVISIBLE;
 import static android.view.View.VISIBLE;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener, StateAdapter.OnClickToMore {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener, StateAdapter.OnClickToMore, StateAdapter1.OnClickToMore{
     boolean stateDarkMode = false;
     TextView empty;
     TextView empty2;
@@ -104,8 +106,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         List<Notatka> notatkas = App.getInstance().getAppDatabase().modelDao().getAll("");
         Collections.reverse(notatkas);
-        StateAdapter stateAdapter = new StateAdapter(this, notatkas, colorFav, colorTitle, colorDec, colorTitle1,  colorDec1, colorBottom);
+        StateAdapter stateAdapter = new StateAdapter(this, notatkas, color1, color2, color3, color4,  color5, color6);
         stateAdapter.setOnClickToMore(this);
+
+
+        List<Notatka> notatkas1 = App.getInstance().getAppDatabase().modelDao().getAllFavorite("");
+        Collections.reverse(notatkas1);
+        StateAdapter1 stateAdapter1 = new StateAdapter1(this, notatkas, color1, color2, color3, color4,  color5, color6);
+        stateAdapter1.setOnClickToMore(this);
         recyclerViewNotes = findViewById(R.id.rv);
         recyclerViewNotes.setAdapter(stateAdapter);
         recyclerViewNotes.setLayoutManager(new GridLayoutManager(this, 2));
@@ -186,8 +194,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 } else if (recyclerViewFavorite.getVisibility() == VISIBLE) {
                     List<Notatka> notatkas = App.getInstance().getAppDatabase().modelDao().getAllFavorite(edtext.getText().toString());
                     Collections.reverse(notatkas);
-                    StateAdapter1 stateAdapter1 = new StateAdapter1(MainActivity.this, notatkas);
+                    StateAdapter1 stateAdapter1 = new StateAdapter1(MainActivity.this, notatkas,  colorFav, colorTitle, colorDec, colorTitle1,  colorDec1, colorBottom);
+                    stateAdapter1.setOnClickToMore(MainActivity.this::onClick);
                     recyclerViewFavorite.setAdapter(stateAdapter1);
+
                 }
             }
 
@@ -202,7 +212,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         searchmove.setOnClickListener(this);
         elipse = findViewById(R.id.elipse);
         elipse4 = findViewById(R.id.elipse4);
-
         elipse1 = findViewById(R.id.elipse1);
 
         BottomNavigationView bottomNavigationView = (BottomNavigationView)
@@ -217,10 +226,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         switch (item.getItemId()) {
                             case R.id.favorite:
                                 plus.setVisibility(View.GONE);
+                                plus1.setVisibility(View.GONE);
                                 recyclerViewNotes.setVisibility(View.GONE);
                                 List<Notatka> notatkas1 = App.getInstance().getAppDatabase().modelDao().getAllFavorite(edtext.getText().toString());
                                 Collections.reverse(notatkas1);
-                                StateAdapter1 stateAdapter1 = new StateAdapter1(MainActivity.this, notatkas1);
+                                StateAdapter1 stateAdapter1 = new StateAdapter1(MainActivity.this, notatkas1 ,  color1, color2, color3, color4,  color5, color6);
+                                stateAdapter1.setOnClickToMore(MainActivity.this::onClick);
                                 edtext.setVisibility(View.GONE);
                                 switch1.setVisibility(INVISIBLE);
                                 recyclerViewFavorite.setAdapter(stateAdapter1);
@@ -236,12 +247,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                                 recyclerViewFavorite.setVisibility(VISIBLE);
                             case R.id.history:
+                                plus1.setVisibility(View.GONE);
                                 plus.setVisibility(View.GONE);
                                 edtext.setVisibility(View.GONE);
 
                                 break;
                             case R.id.settings:
-                                plus.setVisibility(View.INVISIBLE);
+                                plus1.setVisibility(View.GONE);
+                                plus.setVisibility(View.GONE);
                                 edtext.setVisibility(View.GONE);
 
                                 recyclerViewFavorite.setVisibility(View.GONE);
@@ -266,6 +279,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                                 break;
                             case R.id.home:
+                                plus1.setVisibility(View.VISIBLE);
                                 plus.setVisibility(View.VISIBLE);
                                 recyclerViewFavorite.setVisibility(View.GONE);
                                 edtext.setVisibility(View.GONE);
@@ -329,8 +343,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         });
 
         colorStyle(color1,color2,color3,color4,color5, color6);
-    }
 
+    }
+    private void closeKeyboard() {
+        View view = this.getCurrentFocus();
+        if (view != null) {
+            InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        }
+    }
 
       @SuppressLint("ResourceType")
       private void colorStyle(int color1, int color2, int color3 , int color4 , int color5, int color6 ) {
@@ -341,7 +362,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
           colorTitle = color2;
           colorDec = color3;
           colorTitle1 = color4;//light
-          colorDec1 = color5;//темніший
+          colorDec1 = color5;//dark
           colorBottom = color6;//коли не вибрана вкладка
           bottomNavigation.setBackgroundColor(getResources().getColor(colorDec1));
           plus.setColorFilter(getResources().getColor(colorDec1));
@@ -385,6 +406,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
 
             case R.id.searchmove:
+                closeKeyboard();
                 anim = AnimationUtils.loadAnimation(this, R.anim.search_anim2);
                 search.setVisibility(View.VISIBLE);
                 elipse.setVisibility(View.VISIBLE);
@@ -394,6 +416,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 anim2 = AnimationUtils.loadAnimation(this, R.anim.elipse_anim);
                 elipse4.setVisibility(View.INVISIBLE);
                 edtext.setText("");
+
                 break;
 
 
