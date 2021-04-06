@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.animation.Animation;
 import android.widget.TextView;
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -24,7 +25,7 @@ import java.util.List;
 
 import static android.view.View.VISIBLE;
 
-public class StateAdapter  extends RecyclerView.Adapter<StateAdapter.ViewHolder>  {
+public class StateAdapter  extends RecyclerView.Adapter<StateAdapter.ViewHolder> implements GestureDetector.OnGestureListener  {
 
         private final LayoutInflater inflater;
         private final List<Notatka> notatkas;
@@ -38,6 +39,12 @@ public class StateAdapter  extends RecyclerView.Adapter<StateAdapter.ViewHolder>
         int colorTitle1 = R.color.greenblue1;
         int colorDec1 = R.color.greenblue2;
     int colorBottom = R.color.greenblue3;
+
+    private static final String TAG = "Swipe position";
+    private float x1, x2, y1, y2;
+    private static int MIN_DISTANSE = 150;
+    private GestureDetector gestureDetector;
+
         public OnClickToMore getOnClickToMore() {
             return onClickToMore;
         }
@@ -143,7 +150,37 @@ public class StateAdapter  extends RecyclerView.Adapter<StateAdapter.ViewHolder>
             return notatkas.size();
         }
 
-        public static class ViewHolder extends RecyclerView.ViewHolder {
+    @Override
+    public boolean onDown(MotionEvent e) {
+        return false;
+    }
+
+    @Override
+    public void onShowPress(MotionEvent e) {
+
+    }
+
+    @Override
+    public boolean onSingleTapUp(MotionEvent e) {
+        return false;
+    }
+
+    @Override
+    public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
+        return false;
+    }
+
+    @Override
+    public void onLongPress(MotionEvent e) {
+
+    }
+
+    @Override
+    public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
+        return false;
+    }
+
+    public static class ViewHolder extends RecyclerView.ViewHolder {
             final ImageView favorite;
             final ImageView elipse1;
             final TextView background1;
