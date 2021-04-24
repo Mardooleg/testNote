@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
@@ -82,7 +83,7 @@ public class StateAdapter1 extends RecyclerView.Adapter<StateAdapter1.ViewHolder
                 notatkas.remove(notatka);
                 App.getInstance().getAppDatabase().modelDao().update(notatka);
                 StateAdapter1.this.notifyItemRemoved(position);
-
+                Toast.makeText(context, "You removed from favorite",  Toast.LENGTH_SHORT).show();
                 return true;
             }
         });
