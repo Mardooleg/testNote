@@ -115,6 +115,8 @@ public class Note extends AppCompatActivity implements View.OnClickListener {
                         @Override
                         public void onClick(DialogInterface dialog, int which1) {
 
+                            Toast.makeText(getApplicationContext(), "Note has been saved",  Toast.LENGTH_SHORT).show();
+
                             if (getIntent().getParcelableExtra("STRING_NOTE") != null) {
                                 notatka.setTitle(title.getText().toString());
                                 notatka.setNote(note.getText().toString());

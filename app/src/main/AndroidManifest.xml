@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.myprogram">
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/ic_deep"
         android:name= ".App"
-    android:label="Note"
+        android:label="Note"
+        tools:replace="android:label"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyProgram">
+        <activity android:name=".Passcode">
+
+        </activity>
         <activity android:name=".MainActivity"
             android:screenOrientation="portrait">  
             <intent-filter>

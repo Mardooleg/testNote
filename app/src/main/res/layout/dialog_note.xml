@@ -1,15 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:background="@color/greenblue1"
-    android:layout_height="match_parent">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
 
-    <TextView
-        android:id="@+id/text"
-        android:textSize="25dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="Delete this note?"></TextView>
+    android:layout_height="match_parent"
+>
+<!--    <com.hanks.passcodeview.PasscodeView-->
+<!--        android:id="@+id/passcodeView"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:background="#222222"-->
+<!--        app:firstInputTip="Enter a passcode of 5 digits "-->
+<!--        app:correctStateColor="#71bb4d"-->
+<!--        app:wrongStateColor="#ea2b46"-->
+<!--        app:normalStateColor="#ffffff"-->
+<!--        app:numberTextColor="#222222"-->
+<!--        app:passcodeLength="5"-->
+<!--        app:passcodeViewType="set_passcode"/>-->
 
 </RelativeLayout>

@@ -18,7 +18,9 @@
         android:layout_marginBottom="0dp"
         android:layout_marginTop="0dp"
 android:id="@+id/backgroun1"
-        android:background="@color/greenblue2"></TextView>
+        android:background="@color/greenblue2"
+
+        ></TextView>
 
     <ImageView
         android:layout_width="25dp"
@@ -39,38 +41,44 @@ android:id="@+id/back"
         android:layout_marginTop="15dp"
         android:layout_marginEnd="15dp"
         android:src="@drawable/tick"></ImageView>
-    <EditText
-        android:id="@+id/title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="34dp"
-        android:background="@null"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="42dp"
-        android:hint="Title"
-        android:textColorHint="@color/greenblue1"
-        android:paddingTop="10dp"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        ></EditText>
 
-    <EditText
-        android:layout_width="364dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="106dp"
-        android:layout_marginBottom="557dp"
-        android:gravity="center_vertical"
-        android:background="@null"
-android:id="@+id/note"
-        android:hint="Type here..."
-        android:textColorHint="@color/greenblue1"
-        android:textSize="20sp"></EditText>
+ <EditText
+     android:id="@+id/title"
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     android:layout_alignParentStart="true"
+     android:layout_alignParentTop="true"
+     android:layout_alignParentEnd="true"
+     android:layout_marginStart="30dp"
+     android:layout_marginLeft="40dp"
+     android:layout_marginTop="42dp"
+     android:layout_marginEnd="30dp"
+     android:background="@null"
+     android:hint="Title"
+     android:paddingTop="10dp"
+     android:textColorHint="@color/greenblue1"
+     android:textSize="20sp"
+     android:textStyle="bold"></EditText>
+
+ <EditText
+     android:id="@+id/note"
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     android:layout_alignParentStart="true"
+     android:layout_alignParentTop="true"
+
+     android:layout_alignParentEnd="true"
+     android:layout_alignParentBottom="true"
+     android:layout_marginStart="30dp"
+
+     android:layout_marginLeft="30dp"
+     android:layout_marginTop="100dp"
+     android:layout_marginEnd="30dp"
+     android:layout_marginBottom="30dp"
+     android:background="@null"
+     android:gravity="top"
+     android:hint="Type here..."
+     android:textColorHint="@color/greenblue1"
+     android:textSize="20sp"></EditText>
 
 </RelativeLayout>

@@ -7,12 +7,14 @@
     tools:context="MainActivity">
 
 
-  
+
+
     <TextView
-    android:layout_width="match_parent"
+        android:background="#FFFFFF"
+        android:layout_width="match_parent"
     android:layout_height="match_parent"
-android:background="#FFFFFF"
         android:id="@+id/background1"
+
     ></TextView>
 
     <TextView
@@ -108,7 +110,14 @@ android:textSize="20dp"
             android:layout_height="match_parent"
             android:layout_above="@+id/bottom_nav"
             android:layout_alignParentTop="true"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+            app:layout_behavior="@string/appbar_scrolling_view_behavior" >
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/background" />
+        </androidx.viewpager.widget.ViewPager>
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottom_nav"

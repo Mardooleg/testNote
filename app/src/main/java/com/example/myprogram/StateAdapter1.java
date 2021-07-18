@@ -3,6 +3,7 @@ package com.example.myprogram;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.media.MediaPlayer;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -73,17 +74,48 @@ public class StateAdapter1 extends RecyclerView.Adapter<StateAdapter1.ViewHolder
         holder.firstnote.setText(notatka.getNote());
         holder.firstnote.setBackground(ContextCompat.getDrawable(holder.firstnote.getContext(), colorDec));
 
+        holder.firstnote.setOnClickListener(new DoubleClickListener() {
+                                                @Override
+                                                public void onDoubleClick() {
 
+
+                                                    notatka.setFavorite(false);
+                                                    notatkas.remove(notatka);
+                                                    App.getInstance().getAppDatabase().modelDao().update(notatka);
+                                                    StateAdapter1.this.notifyItemRemoved(position);
+                                                    Toast.makeText(context, "You removed from favorite",  Toast.LENGTH_SHORT).show();
+                                                    MediaPlayer pop_out= MediaPlayer.create(context, R.raw.pop_like_out);
+                                                    pop_out.start();
+
+                                                    App.getInstance().getAppDatabase().modelDao().update(notatka);
+                                                }
+
+                                                @Override
+                                                public void onSingleClick() {
+                                                    Intent intent1 = new Intent(context, Note.class);
+                                                    intent1.putExtra("STRING_NOTE" , notatka);
+
+                                                    intent1.putExtra("COLOR_TITLE" , colorTitle1);
+                                                    intent1.putExtra("COLOR_DEC" ,colorDec1 );
+                                                    context.startActivity(intent1);
+                                                }
+                                            });
         holder.firstnote.setOnLongClickListener(new View.OnLongClickListener() {
 
 
             @Override
             public boolean onLongClick(View v) {
+
+
                 notatka.setFavorite(false);
                 notatkas.remove(notatka);
                 App.getInstance().getAppDatabase().modelDao().update(notatka);
                 StateAdapter1.this.notifyItemRemoved(position);
                 Toast.makeText(context, "You removed from favorite",  Toast.LENGTH_SHORT).show();
+
+                MediaPlayer delete_pop= MediaPlayer.create(context, R.raw.pop_like_out);
+                delete_pop.start();
+
                 return true;
             }
         });
@@ -95,25 +127,18 @@ public class StateAdapter1 extends RecyclerView.Adapter<StateAdapter1.ViewHolder
                 notatkas.remove(notatka);
                 App.getInstance().getAppDatabase().modelDao().update(notatka);
                 StateAdapter1.this.notifyItemRemoved(position);
+                Toast.makeText(context, "You removed from favorite",  Toast.LENGTH_SHORT).show();
+                MediaPlayer pop_out= MediaPlayer.create(context, R.raw.pop_like_out);
+                pop_out.start();
             }
 
 
         });
                 App.getInstance().getAppDatabase().modelDao().update(notatka);
 
-    holder.firstnote.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            Intent intent1 = new Intent(context, Note.class);
-            intent1.putExtra("STRING_NOTE" , notatka);
-
-            intent1.putExtra("COLOR_TITLE" , colorTitle1);
-            intent1.putExtra("COLOR_DEC" ,colorDec1 );
-            context.startActivity(intent1);
-        }
 
 
-    });
+
     }
     @Override
     public int getItemCount() {

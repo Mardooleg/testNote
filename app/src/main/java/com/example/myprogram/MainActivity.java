@@ -1,22 +1,27 @@
 package com.example.myprogram;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
 import android.annotation.SuppressLint;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.text.Editable;
+import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.GestureDetector;
@@ -46,7 +51,7 @@ import java.util.List;
 import static android.view.View.INVISIBLE;
 import static android.view.View.VISIBLE;
 
-public class MainActivity extends AppCompatActivity  implements View.OnClickListener, StateAdapter.OnClickToMore, StateAdapter1.OnClickToMore, GestureDetector.OnGestureListener {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener, StateAdapter.OnClickToMore, StateAdapter1.OnClickToMore, GestureDetector.OnGestureListener{
     boolean stateDarkMode = false;
    int swipe = 1;
     TextView empty;
@@ -79,6 +84,11 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
 
     Switch switch1;
 
+    final String LOG_TAG = "myLogs";
+    final int DIALOG = 1;
+
+    Dialog dialog;
+
     int colorFav = R.drawable.favorite;
     int colorTitle = R.drawable.elipse2;
     int colorDec = R.drawable.elipse3;
@@ -97,6 +107,9 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
     private GestureDetector gestureDetector;
 
     private ViewPager viewPager;
+
+
+
     @Override
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -459,10 +472,12 @@ swipe = 2;
 
 
             case R.id.plus1:
-                Intent intent2 = new Intent(this, Note.class);
-                intent2.putExtra("COLOR_TITLE" ,colorTitle1 );
-                intent2.putExtra("COLOR_DEC" ,colorDec1 );
+                Intent intent2 = new Intent(this, Passcode.class);
+//                intent2.putExtra("COLOR_TITLE" ,colorTitle1 );
+//                intent2.putExtra("COLOR_DEC" ,colorDec1 );
                 startActivity(intent2);
+                MediaPlayer ring= MediaPlayer.create(MainActivity.this,R.raw.pop);
+                ring.start();
                 break;
 
             case R.id.item1:
@@ -509,13 +524,13 @@ swipe = 2;
 
     @Override
     public void onClick(Notatka notatka) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this, R.style.MyDialogTheme);
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
         ViewGroup viewGroup = findViewById(android.R.id.content);
-        View dialogView = LayoutInflater.from(MainActivity.this).inflate(R.layout.dialog_note, viewGroup, false);
-        builder.setView(dialogView);
+   builder.setTitle("Do you want delete this note?");
         AlertDialog alertDialog = builder.
-                
+
                 setNegativeButton("No", new DialogInterface.OnClickListener() {
+
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
 
@@ -523,8 +538,12 @@ swipe = 2;
                 }).setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-
+                Toast toast = Toast.makeText(getApplicationContext(), "You delete this note", Toast.LENGTH_SHORT);
+                toast.show();
                 App.getInstance().getAppDatabase().modelDao().delete(notatka);
+
+                MediaPlayer delete_pop= MediaPlayer.create(MainActivity.this, R.raw.delete);
+                delete_pop.start();
 
                 List<Notatka> notatkas = App.getInstance().getAppDatabase().modelDao().getAll(edtext.getText().toString());
                 Collections.reverse(notatkas);
@@ -534,6 +553,7 @@ swipe = 2;
             }
         }).create();
         alertDialog.show();
+
     }
 
     @Override
@@ -795,6 +815,12 @@ switch (position){
     }
 });
 
+
+    }
+
+
+    @Override
+    public void onPointerCaptureChanged(boolean hasCapture) {
 
     }
 }

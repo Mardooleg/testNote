@@ -1,15 +1,12 @@
 package com.example.myprogram;
 
-import android.app.AlertDialog;
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.PorterDuff;
-import android.media.Image;
-import android.util.Log;
+import android.media.MediaPlayer;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -23,14 +20,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-import static android.view.View.VISIBLE;
-
 public class StateAdapter  extends RecyclerView.Adapter<StateAdapter.ViewHolder> implements GestureDetector.OnGestureListener  {
 
         private final LayoutInflater inflater;
         private final List<Notatka> notatkas;
         private OnClickToMore onClickToMore;
         private Context context;
+        private int lastPosition = -1;
 
         int colorFav = R.drawable.favorite;
         int colorTitle = R.drawable.elipse2;
@@ -38,7 +34,7 @@ public class StateAdapter  extends RecyclerView.Adapter<StateAdapter.ViewHolder>
 
         int colorTitle1 = R.color.greenblue1;
         int colorDec1 = R.color.greenblue2;
-    int colorBottom = R.color.greenblue3;
+        int colorBottom = R.color.greenblue3;
 
     private static final String TAG = "Swipe position";
     private float x1, x2, y1, y2;
@@ -65,6 +61,7 @@ public class StateAdapter  extends RecyclerView.Adapter<StateAdapter.ViewHolder>
             this.colorDec1 = colorDec1;
             this.colorBottom = colorBottom;
         }
+
         @NonNull
         @Override
         public StateAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -78,10 +75,14 @@ public class StateAdapter  extends RecyclerView.Adapter<StateAdapter.ViewHolder>
         public void onBindViewHolder(StateAdapter.ViewHolder holder, int position) {
             Notatka notatka = notatkas.get(position);
 
+
+
             if (notatka.isFavorite()) {
                 holder.favorite.setImageResource(R.drawable.likeheart);
+
             } else {
                 holder.favorite.setImageResource(colorFav);
+
             }
             holder.firsttitle.setText(notatka.getTitle());
             holder.firsttitle.setBackground(ContextCompat.getDrawable(holder.firstnote.getContext(), colorTitle));
@@ -93,9 +94,12 @@ public class StateAdapter  extends RecyclerView.Adapter<StateAdapter.ViewHolder>
                     notatka.setFavorite(!notatka.isFavorite());
                     if(notatka.isFavorite()){
                         holder.favorite.setImageResource(R.drawable.likeheart);
+                        MediaPlayer pop_in= MediaPlayer.create(context, R.raw.pop_like_in);
+                        pop_in.start();
                     }else{
                         holder.favorite.setImageResource(colorFav);
-
+                        MediaPlayer pop_out= MediaPlayer.create(context, R.raw.pop_like_out);
+                        pop_out.start();
                     }
                     App.getInstance().getAppDatabase().modelDao().update(notatka);
                 }
@@ -109,12 +113,15 @@ public class StateAdapter  extends RecyclerView.Adapter<StateAdapter.ViewHolder>
                     intent1.putExtra("COLOR_TITLE" , colorTitle1);
                     intent1.putExtra("COLOR_DEC" ,colorDec1 );
                     context.startActivity(intent1);
+
+
                 }
             });
 
             holder.favorite.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+
                 }
             });
 
@@ -124,28 +131,56 @@ public class StateAdapter  extends RecyclerView.Adapter<StateAdapter.ViewHolder>
 
                     if(onClickToMore != null)
                         onClickToMore.onClick(notatka);
-                    App.getInstance().getAppDatabase().modelDao().update(notatka);
+
+
+////                    setAnimation(holder.firsttitle, position);
+
+
+
+
                     return true;
-                }
+                  }
+
             });
+
                         holder.favorite.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
                                 notatka.setFavorite(!notatka.isFavorite());
                                 if(notatka.isFavorite()){
+                                    MediaPlayer pop_in= MediaPlayer.create(context, R.raw.pop_like_in);
+                                    pop_in.start();
                                     holder.favorite.setImageResource(R.drawable.likeheart);
                                 }else{
                                     holder.favorite.setImageResource(colorFav);
 
-                                }
+                                    MediaPlayer pop_out= MediaPlayer.create(context, R.raw.pop_like_out);
+                                    pop_out.start();  }
                                 App.getInstance().getAppDatabase().modelDao().update(notatka);
                             }
                         });
 
 
-        }
 
-        @Override
+        }
+    private void setAnimation(View viewToAnimate, int position )
+    {
+            Animation animation2 = AnimationUtils.loadAnimation(context, R.anim.flipin);
+            viewToAnimate.startAnimation(animation2);
+            lastPosition = position;
+        }
+    private void setAnimation1(View viewToAnimate, int position )
+    {
+        // If the bound view wasn't previously displayed on screen, it's animated
+
+
+
+        Animation animation = AnimationUtils.loadAnimation(context, R.anim.flipin);
+
+        viewToAnimate.startAnimation(animation);
+//        lastPosition = position;
+    }
+
         public int getItemCount() {
             return notatkas.size();
         }
