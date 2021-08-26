@@ -12,14 +12,16 @@ import java.util.Collections;
 public class Notatka implements Parcelable {
     @PrimaryKey(autoGenerate = true)
     private int id;
-    private String title; // название
-    private String note;  // столица
-    private boolean favorite; // ресурс флага
+    private String title;
+    private String note;
+    private boolean passcode;
+    private boolean favorite;
 
-    public Notatka(String title, String note, boolean favorite){
+    public Notatka(String title, String note, boolean passcode, boolean favorite){
 
         this.title=title;
         this.note=note;
+        this.passcode=passcode;
         this.favorite=favorite;
 
     }
@@ -29,14 +31,18 @@ public class Notatka implements Parcelable {
         id = in.readInt();
         title = in.readString();
         note = in.readString();
+        passcode = in.readByte() != 0;
         favorite = in.readByte() != 0;
     }
+
+
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeInt(id);
         dest.writeString(title);
         dest.writeString(note);
+        dest.writeByte((byte) (passcode ? 1 : 0));
         dest.writeByte((byte) (favorite ? 1 : 0));
     }
 
@@ -79,6 +85,14 @@ public class Notatka implements Parcelable {
 
     public void setNote(String note) {
         this.note = note;
+    }
+
+    public boolean getPasscode() {
+        return passcode;
+    }
+
+    public void setPasscode(boolean note) {
+        this.passcode = passcode;
     }
 
     public boolean isFavorite() {

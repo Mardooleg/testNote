@@ -11,8 +11,11 @@
         tools:replace="android:label"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyProgram">
-        <activity android:name=".Passcode">
-
+        <activity android:name=".Passcode"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity android:name=".Passcode_enter"
+            android:screenOrientation="portrait">
         </activity>
         <activity android:name=".MainActivity"
             android:screenOrientation="portrait">  

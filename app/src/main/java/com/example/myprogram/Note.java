@@ -129,7 +129,7 @@ public class Note extends AppCompatActivity implements View.OnClickListener {
                             } else if (notatka != null) {
                                 Intent intent = new Intent(Note.this, MainActivity.class);
                                 Note.this.startActivity(intent);
-                                App.getInstance().getAppDatabase().modelDao().save(new Notatka(title.getText().toString(), note.getText().toString(), false));
+                                App.getInstance().getAppDatabase().modelDao().save(new Notatka(title.getText().toString(), note.getText().toString(), false, false));
 
                                 finish();
 
@@ -137,7 +137,7 @@ public class Note extends AppCompatActivity implements View.OnClickListener {
                             } else {
                                 Intent intent = new Intent(Note.this, MainActivity.class);
                                 Note.this.startActivity(intent);
-                                App.getInstance().getAppDatabase().modelDao().save(new Notatka(title.getText().toString(), note.getText().toString(), false));
+                                App.getInstance().getAppDatabase().modelDao().save(new Notatka(title.getText().toString(), note.getText().toString(), false , false));
 
                                 finish();
 
@@ -192,7 +192,7 @@ public class Note extends AppCompatActivity implements View.OnClickListener {
                     break;
                 } else if (notatka != null) {
                     Intent intent = new Intent(this, MainActivity.class);
-                    App.getInstance().getAppDatabase().modelDao().save(new Notatka(title.getText().toString(), note.getText().toString(), false));
+                    App.getInstance().getAppDatabase().modelDao().save(new Notatka(title.getText().toString(), note.getText().toString(), false , false));
                     startActivity(intent);
                     finish();
 
@@ -200,7 +200,7 @@ public class Note extends AppCompatActivity implements View.OnClickListener {
 
                 } else {
                     Intent intent = new Intent(this, MainActivity.class);
-                    App.getInstance().getAppDatabase().modelDao().save(new Notatka(title.getText().toString(), note.getText().toString(), false));
+                    App.getInstance().getAppDatabase().modelDao().save(new Notatka(title.getText().toString(), note.getText().toString(), false , false));
                     startActivity(intent);
                     finish();
 

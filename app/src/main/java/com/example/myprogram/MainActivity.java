@@ -472,9 +472,9 @@ swipe = 2;
 
 
             case R.id.plus1:
-                Intent intent2 = new Intent(this, Passcode.class);
-//                intent2.putExtra("COLOR_TITLE" ,colorTitle1 );
-//                intent2.putExtra("COLOR_DEC" ,colorDec1 );
+                Intent intent2 = new Intent(this, Note.class);
+                intent2.putExtra("COLOR_TITLE" ,colorTitle1 );
+                intent2.putExtra("COLOR_DEC" ,colorDec1 );
                 startActivity(intent2);
                 MediaPlayer ring= MediaPlayer.create(MainActivity.this,R.raw.pop);
                 ring.start();
@@ -524,21 +524,15 @@ swipe = 2;
 
     @Override
     public void onClick(Notatka notatka) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-        ViewGroup viewGroup = findViewById(android.R.id.content);
-   builder.setTitle("Do you want delete this note?");
-        AlertDialog alertDialog = builder.
-
-                setNegativeButton("No", new DialogInterface.OnClickListener() {
-
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-
-                    }
-                }).setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+// add a list
+        String[] first_dialog = {"Delete", "Edit", "Add Password"};
+        builder.setItems(first_dialog, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Toast toast = Toast.makeText(getApplicationContext(), "You delete this note", Toast.LENGTH_SHORT);
+                switch (which) {
+                    case 0:
+                        Toast toast = Toast.makeText(getApplicationContext(), "You delete this note", Toast.LENGTH_SHORT);
                 toast.show();
                 App.getInstance().getAppDatabase().modelDao().delete(notatka);
 
@@ -550,9 +544,63 @@ swipe = 2;
                 StateAdapter stateAdapter = new StateAdapter(MainActivity.this, notatkas, colorFav, colorTitle, colorDec, colorTitle1,  colorDec1, colorBottom);
                 stateAdapter.setOnClickToMore(MainActivity.this::onClick);
                 recyclerViewNotes.setAdapter(stateAdapter);
+                   break;
+                    case 1:
+//                        Intent intent = new Intent(MainActivity.this, Note.class);
+//                        MainActivity.this.startActivity(intent);
+
+                        Intent intent1 = new Intent(MainActivity.this, Note.class);
+                        intent1.putExtra("STRING_NOTE" , notatka);
+
+                        intent1.putExtra("COLOR_TITLE" , colorTitle1);
+                        intent1.putExtra("COLOR_DEC" ,colorDec1 );
+                        MainActivity.this.startActivity(intent1);
+
+                        break;
+
+
+                    case 2: Intent intent22 = new Intent(MainActivity.this, Passcode_enter.class);
+                        MainActivity.this.startActivity(intent22);
+                        break;
+
+
+                    }
             }
-        }).create();
-        alertDialog.show();
+        });
+// create and show the alert dialog
+        AlertDialog dialog = builder.create();
+        dialog.show();
+//        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+//        ViewGroup viewGroup = findViewById(android.R.id.content);
+//   builder.setTitle("Do you want delete this note?");
+//        AlertDialog alertDialog = builder.
+//
+//                setNegativeButton("No", new DialogInterface.OnClickListener() {
+////                    Intent intent5 = new Intent( Passcode.class);
+////                    startActivity(intent5);
+//
+//                    @Override
+//                    public void onClick(DialogInterface dialog, int which) {
+//
+//                    }
+//                }).setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+//            @Override
+//            public void onClick(DialogInterface dialog, int which) {
+//                Toast toast = Toast.makeText(getApplicationContext(), "You delete this note", Toast.LENGTH_SHORT);
+//                toast.show();
+//                App.getInstance().getAppDatabase().modelDao().delete(notatka);
+//
+//                MediaPlayer delete_pop= MediaPlayer.create(MainActivity.this, R.raw.delete);
+//                delete_pop.start();
+//
+//                List<Notatka> notatkas = App.getInstance().getAppDatabase().modelDao().getAll(edtext.getText().toString());
+//                Collections.reverse(notatkas);
+//                StateAdapter stateAdapter = new StateAdapter(MainActivity.this, notatkas, colorFav, colorTitle, colorDec, colorTitle1,  colorDec1, colorBottom);
+//                stateAdapter.setOnClickToMore(MainActivity.this::onClick);
+//                recyclerViewNotes.setAdapter(stateAdapter);
+//            }
+//        }).create();
+//        alertDialog.show();
 
     }
 

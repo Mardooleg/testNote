@@ -24,7 +24,8 @@ public class StateAdapter  extends RecyclerView.Adapter<StateAdapter.ViewHolder>
 
         private final LayoutInflater inflater;
         private final List<Notatka> notatkas;
-        private OnClickToMore onClickToMore;
+
+    private OnClickToMore onClickToMore;
         private Context context;
         private int lastPosition = -1;
 
@@ -107,12 +108,13 @@ public class StateAdapter  extends RecyclerView.Adapter<StateAdapter.ViewHolder>
 
                 @Override
                 public void onSingleClick() {
-                    Intent intent1 = new Intent(context, Note.class);
-                    intent1.putExtra("STRING_NOTE" , notatka);
+//                    if(holder.favorite == null) { }
+                        Intent intent1 = new Intent(context, Note.class);
+                        intent1.putExtra("STRING_NOTE", notatka);
 
-                    intent1.putExtra("COLOR_TITLE" , colorTitle1);
-                    intent1.putExtra("COLOR_DEC" ,colorDec1 );
-                    context.startActivity(intent1);
+                        intent1.putExtra("COLOR_TITLE", colorTitle1);
+                        intent1.putExtra("COLOR_DEC", colorDec1);
+                        context.startActivity(intent1);
 
 
                 }
@@ -217,6 +219,7 @@ public class StateAdapter  extends RecyclerView.Adapter<StateAdapter.ViewHolder>
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
             final ImageView favorite;
+
             final ImageView elipse1;
             final TextView background1;
             final TextView firsttitle, firstnote ;
