@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatEditText;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentStatePagerAdapter;
@@ -36,15 +37,19 @@ import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ListPopupWindow;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -53,6 +58,8 @@ import static android.view.View.VISIBLE;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, StateAdapter.OnClickToMore, StateAdapter1.OnClickToMore, GestureDetector.OnGestureListener{
     boolean stateDarkMode = false;
+//    private AppCompatEditText acetStatus;
+    private ListPopupWindow statusPopupList;
    int swipe = 1;
     TextView empty;
     TextView empty2;
@@ -81,6 +88,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     ImageView elipse1;
 
     EditText edtext;
+    EditText acetStatus;
 
     Switch switch1;
 
@@ -170,6 +178,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         title = findViewById(R.id.firsttitle);
         note = findViewById(R.id.firstnote);
         plus = findViewById(R.id.plus);
+
+        acetStatus = findViewById(R.id.acet_status);
+        EditText acet_status = findViewById(R.id.acet_status);
+        acetStatus.setOnClickListener(this);
 
         item1 = findViewById(R.id.item1);
         ImageView item1 = findViewById(R.id.item1);
@@ -277,6 +289,7 @@ setUpViewPager();
                                 stateAdapter1.setOnClickToMore(MainActivity.this::onClick);
                                 edtext.setVisibility(View.GONE);
                                 switch1.setVisibility(INVISIBLE);
+                                acet_status.setVisibility(INVISIBLE);
                                 recyclerViewFavorite.setAdapter(stateAdapter1);
                                 recyclerViewFavorite.setLayoutManager(new GridLayoutManager(MainActivity.this, 2));
 
@@ -297,7 +310,7 @@ viewPager.setCurrentItem(0);
                                 plus1.setVisibility(View.GONE);
                                 plus.setVisibility(View.GONE);
                                 edtext.setVisibility(View.GONE);
-
+                                acet_status.setVisibility(VISIBLE);
                                 recyclerViewFavorite.setVisibility(View.GONE);
                                 recyclerViewNotes.setVisibility(View.GONE);
 
@@ -337,7 +350,7 @@ swipe = 2;
                                 elipse.setVisibility(VISIBLE);
                                 switch1.setVisibility(INVISIBLE);
                                 systhem.setVisibility(INVISIBLE);
-
+                                acet_status.setVisibility(INVISIBLE);
                                 item1.setVisibility(INVISIBLE);
                                 item2.setVisibility(INVISIBLE);
                                 item3.setVisibility(INVISIBLE);
@@ -352,6 +365,10 @@ swipe = 2;
                         return true;
                     }
                 });
+
+
+
+
         Switch onOffSwitch = (Switch) findViewById(R.id.switch1);
         onOffSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 //            private int[][] bottomNavBarStateList = new int[][]{{android.R.attr.state_checked}, {-android.R.attr.state_checked}};
@@ -390,7 +407,72 @@ swipe = 2;
 
         colorStyle(color1,color2,color3,color4,color5, color6);
 
+
+
+//        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+//        getWindow().setStatusBarColor(getResources().getColor(R.color.white));
+
+        setPopupList();
+        //we need to show the list when clicking on the field
+        setListeners();
     }
+
+    private void setListeners() {
+        acetStatus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                statusPopupList.show();
+            }
+        });
+    }
+
+    private void setPopupList() {
+        final List<String> status = new ArrayList<>();
+        status.add("Red");
+        status.add("Blue");
+        status.add("Green");
+        status.add("Turquoise");
+        status.add("Purple");
+        status.add("Orange");
+        statusPopupList = new ListPopupWindow(MainActivity.this);
+        ArrayAdapter adapter = new ArrayAdapter<>(MainActivity.this, R.layout.item_simple_status, R.id.tv_element, status);
+        statusPopupList.setAnchorView(acetStatus); //this let as set the popup below the EditText
+        statusPopupList.setAdapter(adapter);
+        statusPopupList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                acetStatus.setText(status.get(position));//we set the selected element in the EditText
+                statusPopupList.dismiss();
+
+                }
+
+
+        });
+
+
+
+
+    }
+
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        super.onCreateOptionsMenu(menu);
+//        getMenuInflater().inflate(R.menu.mymenu, menu);
+//        return true;
+//    }
+//
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//        switch (item.getItemId()) {
+//            case R.id.r:
+//                Toast.makeText(this, "update clicked", Toast.LENGTH_SHORT).show();
+//                return true;
+//
+//            default:
+//                return super.onOptionsItemSelected(item);
+//        }
+//
+//    }
 
     private void closeKeyboard() {
         View view = this.getCurrentFocus();

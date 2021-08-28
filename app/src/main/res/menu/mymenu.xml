@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/blue"
+        android:title="Blue"
+        android:icon="@drawable/color_item4"
+        >
+    </item>
+    <item
+        android:id="@+id/red"
+        android:title="Red">
+    </item>
+    <item
+        android:id="@+id/green"
+        android:orderInCategory="3"
+        android:title="Green">
+    </item>
+    <group
+        android:id="@+id/group1">
+        <item
+            android:id="@+id/purple"
+            android:orderInCategory="1"
+            android:title="Purple">
+        </item>
+        <item
+            android:id="@+id/greenblue"
+            android:orderInCategory="2"
+            android:title="Greenblue">
+        </item>
+        <item
+            android:id="@+id/orange"
+            android:orderInCategory="4"
+            android:title="Orange">
+        </item>
+    </group>
+</menu>

@@ -56,6 +56,7 @@ public class Passcode_enter extends AppCompatActivity {
 
 //
     passcodeView1.setPasscodeLength(5) .setListener(new PasscodeView.PasscodeViewListener()
+
                 {
 
                     @Override
@@ -69,15 +70,19 @@ public class Passcode_enter extends AppCompatActivity {
 //                        intent1.putExtra("PASSWORD" , String.valueOf(passcodeView1));
 
 //                        startActivity(new Intent(Passcode_enter.this,MainActivity.class));
-                        App.getInstance().getAppDatabase().modelDao().update(notatka);
+//                        App.getInstance().getAppDatabase().modelDao().update(notatka);
+
+
                         saveText();
+
+
 
                     }
                 });
         if(passcodeView1.getLocalPasscode() == "" ){
-
+            loadText();
         }else {
-          loadText();
+
 
         }
 //        if (notatka != null) {
@@ -89,7 +94,7 @@ public class Passcode_enter extends AppCompatActivity {
     void saveText() {
         sPref = getPreferences(MODE_PRIVATE);
         Editor ed = sPref.edit();
-        ed.putString(SAVED_TEXT, passcodeView1.getLocalPasscode().toString());
+        ed.putString(SAVED_TEXT, passcodeView1.getLocalPasscode());
         ed.commit();
         Toast.makeText(this, "Text saved", Toast.LENGTH_SHORT).show();
     }
