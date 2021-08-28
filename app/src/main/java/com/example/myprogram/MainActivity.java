@@ -323,12 +323,6 @@ viewPager.setCurrentItem(0);
                                 astonaut.setVisibility(View.GONE);
                                 empty.setVisibility(View.GONE);
 
-                                item1.setVisibility(VISIBLE);
-                                item2.setVisibility(VISIBLE);
-                                item3.setVisibility(VISIBLE);
-                                item4.setVisibility(VISIBLE);
-                                item5.setVisibility(VISIBLE);
-                                item6.setVisibility(VISIBLE);
                                 systhem.setVisibility(VISIBLE);
 swipe = 2;
                                 viewPager.setCurrentItem(2);
@@ -428,12 +422,12 @@ swipe = 2;
 
     private void setPopupList() {
         final List<String> status = new ArrayList<>();
-        status.add("Red");
-        status.add("Blue");
-        status.add("Green");
-        status.add("Turquoise");
-        status.add("Purple");
-        status.add("Orange");
+        status.add(0, "Red");
+        status.add(1, "Blue");
+        status.add(2, "Green");
+        status.add(3, "Turquoise");
+        status.add(4, "Purple");
+        status.add(5, "Orange");
         statusPopupList = new ListPopupWindow(MainActivity.this);
         ArrayAdapter adapter = new ArrayAdapter<>(MainActivity.this, R.layout.item_simple_status, R.id.tv_element, status);
         statusPopupList.setAnchorView(acetStatus); //this let as set the popup below the EditText
@@ -444,9 +438,29 @@ swipe = 2;
                 acetStatus.setText(status.get(position));//we set the selected element in the EditText
                 statusPopupList.dismiss();
 
-                }
+                switch ((int) id) {
+                    case 0:
+                        colorStyle(R.drawable.favorite_red,R.drawable.elipse2_red,R.drawable.elipse3_red,R.color.red2, R.color.red1, R.color.red3);
+                        break;
+                    case 1:
+                        colorStyle(R.drawable.favorite_blue,R.drawable.elipse2_blue,R.drawable.elipse3_blue,R.color.blue2, R.color.blue1, R.color.blue3);
+                        break;
+                    case 2:
+                        colorStyle(R.drawable.favorite_green,R.drawable.elipse2_green,R.drawable.elipse3_green,R.color.green2, R.color.green1, R.color.green3);
+                        break;
+                    case 3:
+                        colorStyle(R.drawable.favorite_greenblue,R.drawable.elipse2_greenblue,R.drawable.elipse3_greenblue, R.color.greenblue2,R.color.greenblue1, R.color.greenblue3);
+                        break;
+                    case 4:
+                        colorStyle(R.drawable.favorite_purple,R.drawable.elipse2_purple,R.drawable.elipse3_purple,R.color.purple2, R.color.purple1, R.color.purple3);
+                        break;
+                    case 5:
+                        colorStyle(R.drawable.favorite_orange,R.drawable.elipse2_orange,R.drawable.elipse3_orange, R.color.orange2,R.color.orange1, R.color.orange3);// Метод
+                        break;
 
+                 }
 
+            }
         });
 
 
@@ -562,38 +576,38 @@ swipe = 2;
                 ring.start();
                 break;
 
-            case R.id.item1:
-                colorStyle(R.drawable.favorite_greenblue,R.drawable.elipse2_greenblue,R.drawable.elipse3_greenblue, R.color.greenblue2,R.color.greenblue1, R.color.greenblue3);
-
-                break;
-
-
-            case R.id.item2:
-                colorStyle(R.drawable.favorite_orange,R.drawable.elipse2_orange,R.drawable.elipse3_orange, R.color.orange2,R.color.orange1, R.color.orange3);// Метод
-
-
-                break;
-
-            case R.id.item3:
-                colorStyle(R.drawable.favorite_purple,R.drawable.elipse2_purple,R.drawable.elipse3_purple,R.color.purple2, R.color.purple1, R.color.purple3);
-
-                break;
-
-            case R.id.item4:
-                colorStyle(R.drawable.favorite_green,R.drawable.elipse2_green,R.drawable.elipse3_green,R.color.green2, R.color.green1, R.color.green3);
-
-
-                break;
-
-            case R.id.item5:
-                colorStyle(R.drawable.favorite_blue,R.drawable.elipse2_blue,R.drawable.elipse3_blue,R.color.blue2, R.color.blue1, R.color.blue3);
-
-                break;
-
-            case R.id.item6:
-                colorStyle(R.drawable.favorite_red,R.drawable.elipse2_red,R.drawable.elipse3_red,R.color.red2, R.color.red1, R.color.red3);
-
-                break;
+//            case R.id.item1:
+//                colorStyle(R.drawable.favorite_greenblue,R.drawable.elipse2_greenblue,R.drawable.elipse3_greenblue, R.color.greenblue2,R.color.greenblue1, R.color.greenblue3);
+//
+//                break;
+//
+//
+//            case R.id.item2:
+//                colorStyle(R.drawable.favorite_orange,R.drawable.elipse2_orange,R.drawable.elipse3_orange, R.color.orange2,R.color.orange1, R.color.orange3);// Метод
+//
+//
+//                break;
+//
+//            case R.id.item3:
+//                colorStyle(R.drawable.favorite_purple,R.drawable.elipse2_purple,R.drawable.elipse3_purple,R.color.purple2, R.color.purple1, R.color.purple3);
+//
+//                break;
+//
+//            case R.id.item4:
+//                colorStyle(R.drawable.favorite_green,R.drawable.elipse2_green,R.drawable.elipse3_green,R.color.green2, R.color.green1, R.color.green3);
+//
+//
+//                break;
+//
+//            case R.id.item5:
+//                colorStyle(R.drawable.favorite_blue,R.drawable.elipse2_blue,R.drawable.elipse3_blue,R.color.blue2, R.color.blue1, R.color.blue3);
+//
+//                break;
+//
+//            case R.id.item6:
+//                colorStyle(R.drawable.favorite_red,R.drawable.elipse2_red,R.drawable.elipse3_red,R.color.red2, R.color.red1, R.color.red3);
+//
+//                break;
         }
 
         if (anim != null) {

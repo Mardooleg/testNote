@@ -323,7 +323,7 @@ android:visibility="visible"
 android:layout_marginTop="75dp"
     android:layout_marginLeft="25dp"
     android:id="@+id/item1"
-    android:visibility="invisible"
+    android:visibility="gone"
 
     ></ImageView>
         <ImageView
@@ -333,7 +333,7 @@ android:layout_marginTop="75dp"
             android:layout_marginTop="120dp"
             android:layout_marginLeft="115dp"
             android:id="@+id/item2"
-            android:visibility="invisible"
+            android:visibility="gone"
 
             ></ImageView>
         <ImageView
@@ -343,7 +343,7 @@ android:layout_marginTop="75dp"
             android:layout_marginTop="75dp"
             android:layout_marginLeft="70dp"
             android:id="@+id/item3"
-            android:visibility="invisible"
+            android:visibility="gone"
 
             ></ImageView>
         <ImageView
@@ -353,7 +353,7 @@ android:layout_marginTop="75dp"
             android:layout_marginTop="75dp"
             android:layout_marginLeft="115dp"
             android:id="@+id/item4"
-            android:visibility="invisible"
+            android:visibility="gone"
 
             ></ImageView>
         <ImageView
@@ -363,7 +363,7 @@ android:layout_marginTop="75dp"
             android:layout_marginTop="120dp"
             android:layout_marginLeft="70dp"
             android:id="@+id/item5"
-            android:visibility="invisible"
+            android:visibility="gone"
 
             ></ImageView>
         <ImageView
@@ -373,7 +373,7 @@ android:layout_marginTop="75dp"
             android:layout_marginTop="120dp"
             android:layout_marginLeft="25dp"
             android:id="@+id/item6"
-android:visibility="invisible"
+android:visibility="gone"
             ></ImageView>
 <!---->
 
