@@ -6,36 +6,38 @@
 
         <TextView
             android:id="@+id/firstnote"
-            android:layout_width="140dp"
-            android:layout_height="100dp"
+            android:layout_width="145dp"
+            android:layout_height="105dp"
 
-android:layout_centerHorizontal="true"
+            android:layout_centerHorizontal="true"
             android:background="@drawable/elipse3"
             android:text="Bla bla   "
-            android:textColor="@color/dark"
+            android:textColor="#343434"
             android:textSize="15sp"
             android:layout_marginTop="25dp"
 
-            android:paddingLeft="5dp"
-            android:paddingTop="20dp"
+            android:paddingLeft="8dp"
+            android:paddingTop="22dp"
             android:visibility="visible"
             ></TextView>
 
 
         <TextView
             android:id="@+id/firsttitle"
-            android:layout_width="140dp"
-            android:layout_height="20dp"
+            android:layout_width="145dp"
+            android:layout_height="22dp"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="25dp"
             android:background="@drawable/elipse2"
             android:text="Title"
-            android:textColor="@color/black"
             android:textStyle="bold"
+
+            android:textColor="@color/dark"
             android:textSize="15sp"
+            android:paddingTop="1.7dp"
             android:paddingLeft="8dp"
             android:paddingRight="1dp"
-            android:paddingTop="2dp"
+
             android:visibility="visible"
 
             ></TextView>

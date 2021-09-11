@@ -14,8 +14,14 @@
         <!-- Customize your theme here. -->
 
     </style>
+    <style name="AppTheme.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
 
-    <style name="AppTheme" parent="Base.Theme.AppCompat.Light.DarkActionBar"></style>
+    </style>
 
     <style name="MyDialogTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
         <item name="android:background">@color/greenblue2</item>

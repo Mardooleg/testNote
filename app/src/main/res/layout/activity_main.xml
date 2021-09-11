@@ -17,6 +17,18 @@
 
     ></TextView>
 
+<!--    <androidx.appcompat.widget.Toolbar-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="?attr/actionBarDivider"-->
+<!--        android:id="@+id/toolbar"-->
+<!--        android:background="@drawable/gradient_status"-->
+<!--        ></androidx.appcompat.widget.Toolbar>-->
+<!--    <ImageView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:src="@drawable/background5"-->
+<!--        android:scaleType="fitXY"-->
+<!--        ></ImageView>-->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -270,7 +282,6 @@ android:visibility="visible"
             android:layout_marginBottom="82dp"
             android:src="@drawable/ic_plus"
             android:shadowColor="@color/black"
-
             ></ImageView>
         <ImageView
             android:id="@+id/plus1"
@@ -378,18 +389,16 @@ android:visibility="gone"
 <!---->
 
         <EditText
-            android:id="@+id/acet_status"
             style="@style/MyEditText"
+            android:id="@+id/acet_status"
             android:layout_width="104dp"
-            android:layout_height="25dp"
-
-
+            android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginTop="55dp"
+            android:layout_marginTop="75dp"
             android:layout_marginEnd="25dp"
-            android:layout_marginBottom="649dp"
+            android:layout_marginBottom="640dp"
             android:clickable="false"
             android:focusable="false"
             android:inputType="none"

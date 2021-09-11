@@ -78,12 +78,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     ImageView astonaut1;
     ImageView astonaut2;
     ImageView elipse4;
-    ImageView item1;
-    ImageView item2;
-    ImageView item3;
-    ImageView item4;
-    ImageView item5;
-    ImageView item6;
+//    ImageView item1;
+//    ImageView item2;
+//    ImageView item3;
+//    ImageView item4;
+//    ImageView item5;
+//    ImageView item6;
     ImageView elipse;
     ImageView elipse1;
 
@@ -182,30 +182,30 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         acetStatus = findViewById(R.id.acet_status);
         EditText acet_status = findViewById(R.id.acet_status);
         acetStatus.setOnClickListener(this);
-
-        item1 = findViewById(R.id.item1);
-        ImageView item1 = findViewById(R.id.item1);
-        item1.setOnClickListener(this);
-
-        item2 = findViewById(R.id.item2);
-        ImageView item2 = findViewById(R.id.item2);
-        item2.setOnClickListener(this);
-
-        item3 = findViewById(R.id.item3);
-        ImageView item3 = findViewById(R.id.item3);
-        item3.setOnClickListener(this);
-
-        item4 = findViewById(R.id.item4);
-        ImageView item4 = findViewById(R.id.item4);
-        item4.setOnClickListener(this);
-
-        item5 = findViewById(R.id.item5);
-        ImageView item5 = findViewById(R.id.item5);
-        item5.setOnClickListener(this);
-
-        item6 = findViewById(R.id.item6);
-        ImageView item6 = findViewById(R.id.item6);
-        item6.setOnClickListener(this);
+//
+//        item1 = findViewById(R.id.item1);
+//        ImageView item1 = findViewById(R.id.item1);
+//        item1.setOnClickListener(this);
+//
+//        item2 = findViewById(R.id.item2);
+//        ImageView item2 = findViewById(R.id.item2);
+//        item2.setOnClickListener(this);
+//
+//        item3 = findViewById(R.id.item3);
+//        ImageView item3 = findViewById(R.id.item3);
+//        item3.setOnClickListener(this);
+//
+//        item4 = findViewById(R.id.item4);
+//        ImageView item4 = findViewById(R.id.item4);
+//        item4.setOnClickListener(this);
+//
+//        item5 = findViewById(R.id.item5);
+//        ImageView item5 = findViewById(R.id.item5);
+//        item5.setOnClickListener(this);
+//
+//        item6 = findViewById(R.id.item6);
+//        ImageView item6 = findViewById(R.id.item6);
+//        item6.setOnClickListener(this);
 
         search = findViewById(R.id.search);
         ImageView search = findViewById(R.id.search);
@@ -293,12 +293,12 @@ setUpViewPager();
                                 recyclerViewFavorite.setAdapter(stateAdapter1);
                                 recyclerViewFavorite.setLayoutManager(new GridLayoutManager(MainActivity.this, 2));
 
-                                item1.setVisibility(INVISIBLE);
-                                item2.setVisibility(INVISIBLE);
-                                item3.setVisibility(INVISIBLE);
-                                item4.setVisibility(INVISIBLE);
-                                item5.setVisibility(INVISIBLE);
-                                item6.setVisibility(INVISIBLE);
+//                                item1.setVisibility(INVISIBLE);
+//                                item2.setVisibility(INVISIBLE);
+//                                item3.setVisibility(INVISIBLE);
+//                                item4.setVisibility(INVISIBLE);
+//                                item5.setVisibility(INVISIBLE);
+//                                item6.setVisibility(INVISIBLE);
                                 systhem.setVisibility(INVISIBLE);
 
                                 recyclerViewFavorite.setVisibility(VISIBLE);
@@ -345,12 +345,12 @@ swipe = 2;
                                 switch1.setVisibility(INVISIBLE);
                                 systhem.setVisibility(INVISIBLE);
                                 acet_status.setVisibility(INVISIBLE);
-                                item1.setVisibility(INVISIBLE);
-                                item2.setVisibility(INVISIBLE);
-                                item3.setVisibility(INVISIBLE);
-                                item4.setVisibility(INVISIBLE);
-                                item5.setVisibility(INVISIBLE);
-                                item6.setVisibility(INVISIBLE);
+//                                item1.setVisibility(INVISIBLE);
+//                                item2.setVisibility(INVISIBLE);
+//                                item3.setVisibility(INVISIBLE);
+//                                item4.setVisibility(INVISIBLE);
+//                                item5.setVisibility(INVISIBLE);
+//                                item6.setVisibility(INVISIBLE);
                                 swipe = 1;
                                 viewPager.setCurrentItem(1);
 
@@ -422,12 +422,15 @@ swipe = 2;
 
     private void setPopupList() {
         final List<String> status = new ArrayList<>();
-        status.add(0, "Red");
-        status.add(1, "Blue");
+        status.add(0, "Light");
+        status.add(1, "Dark");
         status.add(2, "Green");
         status.add(3, "Turquoise");
         status.add(4, "Purple");
         status.add(5, "Orange");
+        status.add(6, "Red");
+        status.add(7, "Blue");
+
         statusPopupList = new ListPopupWindow(MainActivity.this);
         ArrayAdapter adapter = new ArrayAdapter<>(MainActivity.this, R.layout.item_simple_status, R.id.tv_element, status);
         statusPopupList.setAnchorView(acetStatus); //this let as set the popup below the EditText
@@ -440,16 +443,27 @@ swipe = 2;
 
                 switch ((int) id) {
                     case 0:
-                        colorStyle(R.drawable.favorite_red,R.drawable.elipse2_red,R.drawable.elipse3_red,R.color.red2, R.color.red1, R.color.red3);
+                        colorStyle(R.drawable.favorite_colorblind,R.drawable.elipse2_colorblind,R.drawable.elipse3_colorblind, R.color.white,R.color.color_blind2, R.color.color_blind3);
                         break;
                     case 1:
-                        colorStyle(R.drawable.favorite_blue,R.drawable.elipse2_blue,R.drawable.elipse3_blue,R.color.blue2, R.color.blue1, R.color.blue3);
+                        colorStyle(R.drawable.favorite_dark,R.drawable.elipse2_dark,R.drawable.elipse3_dark, R.color.white,R.color.color_dark2, R.color.color_dark3);
+                        Window window = getWindow();
+                        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+                        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+                        window.setStatusBarColor(getResources().getColor(R.color.dark));
+                        background.setBackgroundColor(getResources().getColor(R.color.dark));
+                        litback.setBackgroundColor(getResources().getColor(R.color.dark));
+                        switch1.setTextColor(getResources().getColor(R.color.white));
+                        search.setColorFilter(getResources().getColor(R.color.dark));
+                        searchmove.setColorFilter(getResources().getColor(R.color.dark));
+                        systhem.setTextColor(getResources().getColor(R.color.white));
+                        plus1.setColorFilter(getResources().getColor(R.color.dark));
                         break;
                     case 2:
                         colorStyle(R.drawable.favorite_green,R.drawable.elipse2_green,R.drawable.elipse3_green,R.color.green2, R.color.green1, R.color.green3);
                         break;
                     case 3:
-                        colorStyle(R.drawable.favorite_greenblue,R.drawable.elipse2_greenblue,R.drawable.elipse3_greenblue, R.color.greenblue2,R.color.greenblue1, R.color.greenblue3);
+                        colorStyle(R.drawable.favorite_greenblue,R.drawable.elipse2_greenblue,R.drawable.elipse3, R.color.greenblue2,R.color.greenblue1, R.color.greenblue3);
                         break;
                     case 4:
                         colorStyle(R.drawable.favorite_purple,R.drawable.elipse2_purple,R.drawable.elipse3_purple,R.color.purple2, R.color.purple1, R.color.purple3);
@@ -457,7 +471,12 @@ swipe = 2;
                     case 5:
                         colorStyle(R.drawable.favorite_orange,R.drawable.elipse2_orange,R.drawable.elipse3_orange, R.color.orange2,R.color.orange1, R.color.orange3);// Метод
                         break;
-
+                    case 6:
+                        colorStyle(R.drawable.favorite_red,R.drawable.elipse2_red,R.drawable.elipse3_red,R.color.red2, R.color.red1, R.color.red3);
+                        break;
+                    case 7:
+                        colorStyle(R.drawable.favorite_blue,R.drawable.elipse2_blue,R.drawable.elipse3_blue,R.color.blue2, R.color.blue1, R.color.blue3);
+                        break;
                  }
 
             }
@@ -497,8 +516,7 @@ swipe = 2;
     }
 
       @SuppressLint("ResourceType")
-      private void colorStyle(int color1, int color2, int color3 , int color4 , int color5, int color6 ) {
-
+      private void colorStyle(int color1, int color2, int color3 , int color4 , int color5, int color6/* int color7 , int color8*/) {
 
 
           colorFav = color1;
@@ -563,7 +581,6 @@ swipe = 2;
                 anim2 = AnimationUtils.loadAnimation(this, R.anim.elipse_anim);
                 elipse4.setVisibility(View.INVISIBLE);
                 edtext.setText("");
-
                 break;
 
 
@@ -736,12 +753,12 @@ swipe = 2;
                             recyclerViewFavorite.setAdapter(stateAdapter1);
                             recyclerViewFavorite.setLayoutManager(new GridLayoutManager(MainActivity.this, 2));
 
-                            item1.setVisibility(INVISIBLE);
-                            item2.setVisibility(INVISIBLE);
-                            item3.setVisibility(INVISIBLE);
-                            item4.setVisibility(INVISIBLE);
-                            item5.setVisibility(INVISIBLE);
-                            item6.setVisibility(INVISIBLE);
+//                            item1.setVisibility(INVISIBLE);
+//                            item2.setVisibility(INVISIBLE);
+//                            item3.setVisibility(INVISIBLE);
+//                            item4.setVisibility(INVISIBLE);
+//                            item5.setVisibility(INVISIBLE);
+//                            item6.setVisibility(INVISIBLE);
                             systhem.setVisibility(INVISIBLE);
 
 
@@ -770,12 +787,12 @@ swipe = 2;
                             switch1.setVisibility(INVISIBLE);
                             systhem.setVisibility(INVISIBLE);
 
-                            item1.setVisibility(INVISIBLE);
-                            item2.setVisibility(INVISIBLE);
-                            item3.setVisibility(INVISIBLE);
-                            item4.setVisibility(INVISIBLE);
-                            item5.setVisibility(INVISIBLE);
-                            item6.setVisibility(INVISIBLE);
+//                            item1.setVisibility(INVISIBLE);
+//                            item2.setVisibility(INVISIBLE);
+//                            item3.setVisibility(INVISIBLE);
+//                            item4.setVisibility(INVISIBLE);
+//                            item5.setVisibility(INVISIBLE);
+//                            item6.setVisibility(INVISIBLE);
 
                             Menu menu1 = bottomNavigation.getMenu();
                             MenuItem menuItem1 = menu1.getItem(1);
@@ -799,12 +816,12 @@ swipe = 2;
             }
         }
         if (anim_swipe != null) {
-            item1.startAnimation(anim_swipe);
-            item2.startAnimation(anim_swipe);
-            item3.startAnimation(anim_swipe);
-            item4.startAnimation(anim_swipe);
-            item5.startAnimation(anim_swipe);
-            item6.startAnimation(anim_swipe);
+//            item1.startAnimation(anim_swipe);
+//            item2.startAnimation(anim_swipe);
+//            item3.startAnimation(anim_swipe);
+//            item4.startAnimation(anim_swipe);
+//            item5.startAnimation(anim_swipe);
+//            item6.startAnimation(anim_swipe);
       switch1.startAnimation(anim_swipe);
             systhem.startAnimation(anim_swipe);
 
@@ -877,12 +894,12 @@ switch (position){
         recyclerViewFavorite.setAdapter(stateAdapter1);
         recyclerViewFavorite.setLayoutManager(new GridLayoutManager(MainActivity.this, 2));
 
-        item1.setVisibility(INVISIBLE);
-        item2.setVisibility(INVISIBLE);
-        item3.setVisibility(INVISIBLE);
-        item4.setVisibility(INVISIBLE);
-        item5.setVisibility(INVISIBLE);
-        item6.setVisibility(INVISIBLE);
+//        item1.setVisibility(INVISIBLE);
+//        item2.setVisibility(INVISIBLE);
+//        item3.setVisibility(INVISIBLE);
+//        item4.setVisibility(INVISIBLE);
+//        item5.setVisibility(INVISIBLE);
+//        item6.setVisibility(INVISIBLE);
         systhem.setVisibility(INVISIBLE);
 
         recyclerViewFavorite.setVisibility(VISIBLE);
@@ -907,12 +924,12 @@ switch (position){
         switch1.setVisibility(INVISIBLE);
         systhem.setVisibility(INVISIBLE);
 
-        item1.setVisibility(INVISIBLE);
-        item2.setVisibility(INVISIBLE);
-        item3.setVisibility(INVISIBLE);
-        item4.setVisibility(INVISIBLE);
-        item5.setVisibility(INVISIBLE);
-        item6.setVisibility(INVISIBLE);
+//        item1.setVisibility(INVISIBLE);
+//        item2.setVisibility(INVISIBLE);
+//        item3.setVisibility(INVISIBLE);
+//        item4.setVisibility(INVISIBLE);
+//        item5.setVisibility(INVISIBLE);
+//        item6.setVisibility(INVISIBLE);
         viewPager.setCurrentItem(1);
 
         break;
@@ -937,12 +954,12 @@ switch (position){
         astonaut.setVisibility(View.GONE);
         empty.setVisibility(View.GONE);
 
-        item1.setVisibility(VISIBLE);
-        item2.setVisibility(VISIBLE);
-        item3.setVisibility(VISIBLE);
-        item4.setVisibility(VISIBLE);
-        item5.setVisibility(VISIBLE);
-        item6.setVisibility(VISIBLE);
+//        item1.setVisibility(VISIBLE);
+//        item2.setVisibility(VISIBLE);
+//        item3.setVisibility(VISIBLE);
+//        item4.setVisibility(VISIBLE);
+//        item5.setVisibility(VISIBLE);
+//        item6.setVisibility(VISIBLE);
         systhem.setVisibility(VISIBLE);
         break;
 

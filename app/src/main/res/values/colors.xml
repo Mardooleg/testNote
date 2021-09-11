@@ -17,6 +17,9 @@
     <color name="orange2">#ffa040</color>
     <color name="blue1">#005ecb</color>
     <color name="blue2">#448aff</color>
+    <color name="color_blind2">#cccccc</color>
+    <color name="color_dark2">#787878</color>
+
     <color name="green1">#009624</color>
     <color name="green2">#00C853</color>
     <color name="dark">#111111</color>
@@ -27,6 +30,10 @@
     <color name="orange3">#c43e00</color>
     <color name="purple3">#6a0080</color>
     <color name="green3">#006700</color>
+    <color name="color_blind3">#9b9b9b
+    </color>
+    <color name="color_dark3">#989b9b </color>
+
     <color name="detail_pink">#F52C82</color>
     <color name="detail_blue">#58B2FE</color>
 

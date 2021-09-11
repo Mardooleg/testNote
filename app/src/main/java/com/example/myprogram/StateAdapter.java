@@ -24,12 +24,13 @@ public class StateAdapter  extends RecyclerView.Adapter<StateAdapter.ViewHolder>
 
         private final LayoutInflater inflater;
         private final List<Notatka> notatkas;
+    public CharSequence text;
 
     private OnClickToMore onClickToMore;
         private Context context;
         private int lastPosition = -1;
 
-        int colorFav = R.drawable.favorite;
+    int colorFav = R.drawable.favorite;
         int colorTitle = R.drawable.elipse2;
         int colorDec = R.drawable.elipse3;
 

@@ -13,6 +13,11 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+    <style name="AppTheme.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar"></style>
     <style name="MyEditText" parent="@android:style/TextAppearance">
         <item name="android:textColor">@color/subtitle_dark</item>

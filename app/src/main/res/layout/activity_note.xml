@@ -58,7 +58,9 @@ android:id="@+id/back"
      android:paddingTop="10dp"
      android:textColorHint="@color/greenblue1"
      android:textSize="20sp"
-     android:textStyle="bold"></EditText>
+     android:textStyle="bold"
+     android:textColor="#828282"
+     ></EditText>
 
  <EditText
      android:id="@+id/note"
@@ -70,7 +72,7 @@ android:id="@+id/back"
      android:layout_alignParentEnd="true"
      android:layout_alignParentBottom="true"
      android:layout_marginStart="30dp"
-
+     android:textColor="#828282"
      android:layout_marginLeft="30dp"
      android:layout_marginTop="100dp"
      android:layout_marginEnd="30dp"
